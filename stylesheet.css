@@ -140,3 +140,40 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+/* Add some overall structure and breathing room to the main content area. */
+.courses-container {
+    max-width: 800px; /* Keeps lines from getting too long on wide screens */
+    margin: 40px auto; /* Centers the container and adds space top/bottom */
+    padding: 0 20px;   /* Prevents content from touching screen edges */
+}
+
+/* Add space between subject sections to replace the <hr> tags. */
+section {
+    margin-bottom: 50px;
+}
+
+/* Style the section headers for a cleaner look. */
+h2 {
+    padding-bottom: 10px; /* Adds space between the text and the border */
+    border-bottom: 1px solid #eee; /* A very light, subtle separator line */
+    margin-bottom: 25px; /* Adds space before the list of courses */
+}
+
+/* Add consistent vertical spacing between each course entry. */
+.course-item {
+    margin-bottom: 25px;
+}
+
+/* Tweak paragraph margins for better grouping. */
+.course-item p {
+    margin-top: 0;
+    margin-bottom: 5px; /* Tighter spacing between title and description */
+}
+
+/* Style the course description to look like a sub-note. */
+.course-description {
+    padding-left: 20px; /* Indents the description under the title */
+    color: #555;         /* A dark gray is softer on the eyes than pure black */
+    font-style: italic;  /* A nice touch for personal thoughts */
+}
