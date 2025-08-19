@@ -177,3 +177,19 @@ h2 {
     color: #555;         /* A dark gray is softer on the eyes than pure black */
     font-style: italic;  /* A nice touch for personal thoughts */
 }
+
+body {
+    margin: 0; /* This removes the default browser margin */
+}
+.banner-img {
+    width: 100%;
+    height: 120px; /* Adjusted height for better balance */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+.post-title { /* A more appropriate class name for blog titles */
+    font-family: 'Google Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
