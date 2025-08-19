@@ -180,6 +180,9 @@ h2 {
 
 body {
     margin: 0; /* This removes the default browser margin */
+    line-height: 1.6;
+    background-color: #F2F0EF;
+    color: #4e4e4e
 }
 .banner-img {
     width: 100%;
