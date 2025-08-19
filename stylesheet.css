@@ -158,7 +158,7 @@ section {
 /* Style the section headers for a cleaner look. */
 h2 {
     padding-bottom: 10px; /* Adds space between the text and the border */
-    border-bottom: 1px solid #eee; /* A very light, subtle separator line */
+    border-bottom: 1px solid #b8b8b8; /* A very light, subtle separator line */
     margin-bottom: 25px; /* Adds space before the list of courses */
 }
 
