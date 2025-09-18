@@ -33,12 +33,12 @@
                   Mark Rhee
                 </p>
                 <p>
-                  I'm a (applied) mathematics student at <a href="https://math.berkeley.edu/">UC Berkeley</a> with intended minors in <a href="https://eecs.berkeley.edu/cs/">computer science</a> 
-                  and <a href="https://philosophy.berkeley.edu/">philosophy</a>. My interests lie at the intersection of fields such as math, computer science, physics, and philosophy. I'm particularly 
+                  I'm a (applied) mathematics student at <a href="https://math.berkeley.edu/">UC Berkeley</a> with intended minors in computer science 
+                  and philosophy. My interests lie at the intersection of fields such as math, computer science, physics, and philosophy. I'm particularly 
                   interested in the mathematical foundations of machine learning.
                 </p>
                 <p style="text-align:center">
-                  <a href="data/resume 2025-08-17.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="data/resume 2025-09-18.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://www.linkedin.com/in/mark-rhee-b29b72277/">LinkedIn</a> &nbsp;/&nbsp;
                   <a href="https://github.com/mrkdh16">Github</a>
                 </p>
@@ -50,17 +50,119 @@
           </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-              <tr>
+            
+            <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <p>
-                    At Berkeley, I've taken a wide range of classes--mostly whatever I found interesting. You can find a list of all the (cool) classes 
-                    I've taken so far and my thoughts on them <a href="courses.html">here</a>. I also store notes and random musings <a href="https://mrkdh16.github.io/markedown/">here</a>. 
-                    Check it out if you want a peak into my brain.
+                    At Berkeley, I've taken a wide range of classes&mdash;mostly whatever I found interesting. You can find a list of all the (cool) classes I've taken so far and my thoughts on them <a href="courses.html">here</a>. I store notes and random musings <a href="https://mrkdh16.github.io/markedown/">here</a>. Check it out if you want a peek into my brain.
                 </p>
               </td>
             </tr>
+
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2>Projects</h2>
+                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                        <tr onmouseout="optimizer_stop()" onmouseover="optimizer_start()">
+                            <td style="padding:16px;width:20%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='optimizer_second_image'>
+                                <img src='images/optimizer2.jpg' width=100%></div>
+                                <img src='images/optimizer1.jpg' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function optimizer_start() {
+                                document.getElementById('optimizer_second_image').style.opacity = "1";
+                                }
+
+                                function optimizer_stop() {
+                                document.getElementById('optimizer_second_image').style.opacity = "0";
+                                }
+                                optimizer_stop()
+                            </script>
+                            </td>
+                            <td style="padding:8px;width:80%;vertical-align:middle">
+                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration" class="hoverZoomLink">
+                                <span class="papertitle">Generalization Capabilities of Neural Network Substructure Ensembles</span>
+                            </a>
+                            <br>
+                            August 2025
+                            <br>
+                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration">Github Repo</a>
+                            <p>
+                            Showed that ensembles of sparse subnetworks can vastly outperform dense networks while improving out-of-distribution generalization. This work highlights how sparsity and functional redundancy can be leveraged for more robust learning.                            </p>
+                            </td>
+                        </tr>
+                        
+                        <tr onmouseout="lottery_stop()" onmouseover="lottery_start()">
+                            <td style="padding:16px;width:20%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='lottery_second_image'>
+                                <img src='images/lottery2.jpg' width=100%></div>
+                                <img src='images/lottery.jpg' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function lottery_start() {
+                                document.getElementById('lottery_second_image').style.opacity = "1";
+                                }
+
+                                function lottery_stop() {
+                                document.getElementById('lottery_second_image').style.opacity = "0";
+                                }
+                                lottery_stop()
+                            </script>
+                            </td>
+                            <td style="padding:8px;width:80%;vertical-align:middle">
+                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration" class="hoverZoomLink">
+                                <span class="papertitle">Generalization Capabilities of Neural Network Substructure Ensembles</span>
+                            </a>
+                            <br>
+                            August 2025
+                            <br>
+                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration">Github Repo</a>
+                            <p>
+                            Showed that ensembles of sparse subnetworks can vastly outperform dense networks while improving out-of-distribution generalization. This work highlights how sparsity and functional redundancy can be leveraged for more robust learning.                            </p>
+                            </td>
+                        </tr>
+                        
+
+                        <tr onmouseout="nba_shot_project_stop()" onmouseover="nba_shot_project_start()">
+                            <td style="padding:16px;width:20%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='nba_shot_second_image'>
+                                <img src='images/nba-shot-second.jpg' width=100%></div>
+                                <img src='images/nba-shot-first.png' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function nba_shot_project_start() {
+                                document.getElementById('nba_shot_second_image').style.opacity = "1";
+                                }
+
+                                function nba_shot_project_stop() {
+                                document.getElementById('nba_shot_second_image').style.opacity = "0";
+                                }
+                                nba_shot_project_stop()
+                            </script>
+                            </td>
+                            <td style="padding:8px;width:80%;vertical-align:middle">
+                            <a href="https://github.com/mrkdh16/nba-shot-prediction" class="hoverZoomLink">
+                                <span class="papertitle">NBA Shot Prediction</span>
+                            </a>
+                            <br>
+                            December 2024
+                            <br>
+                            <a href="https://github.com/mrkdh16/nba-shot-prediction">Github Repo</a>
+                            <p>
+                            Predictive modeling of NBA shot success using features like shot distance and defender proximity. Trained logistic regression and neural networks. Features analysis by training models with individual variables.
+                            </p>
+                            </td>
+                        </tr>
+                    
+                    </table>
+              </td>
+            </tr>
+            
           </tbody></table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:0px">
                 <br>
