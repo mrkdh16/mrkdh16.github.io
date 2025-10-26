@@ -62,33 +62,38 @@
             <tr>
             <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Expositions</h2>
-                <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-                <tbody>
+                <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+                 <tr onmouseout="occam_stop()" onmouseover="occam_start()">
+                            <td style="padding:16px;width:20%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='occam_second_image'>
+                                <img src='images/occam2.png' width=100%></div>
+                                <img src='images/occam1.png' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function occam_start() {
+                                document.getElementById('occam_second_image').style.opacity = "1";
+                                }
 
-                    <tr>
-                    <td style="padding:16px;width:100%;vertical-align:middle">
-                        <a href="https://mrkdh16.github.io/markedown/Math/Applications/Occam's-Razor-as-a-bridge-from-Linear-to-Kernel-Regression" class="hoverZoomLink">
-                        <span class="papertitle">Occam's Razor as a bridge from Linear to Kernel Regression</span>
-                        </a>
-                        <br>
-                        October 2025
-                        <p>
-                        A note on linear regression, inductive biases, a Bayesian justification for Occam's Razor and an example of an overparameterized but generalizable class of models in Kernel methods.
+                                function occam_stop() {
+                                document.getElementById('occam_second_image').style.opacity = "0";
+                                }
+                                occam_stop()
+                            </script>
+                            </td>
+                            <td style="padding:8px;width:80%;vertical-align:middle">
+                            <a href="https://mrkdh16.github.io/markedown/Math/Applications/Occam's-Razor-as-a-bridge-from-Linear-to-Kernel-Regression" class="hoverZoomLink">
+                                <span class="papertitle">Occam's Razor as a bridge from Linear to Kernel Regression</span>
+                            </a>
+                            <br>
+                            October 2025
+                            <br>
+                            <p>
+                            A note on linear regression, inductive biases, a Bayesian justification for Occam's Razor and an example of an overparameterized but generalizable class of models in Kernel methods.                            
                         </p>
-                    </td>
-                    </tr>
-                    <tr>
-                    <td style="padding:16px;width:100%;vertical-align:middle">
-                        <a href="https://mrkdh16.github.io/markedown/Math/Linear-Algebra/Linear-Algebra" class="hoverZoomLink">
-                        <span class="papertitle">Linear Algebra</span>
-                        </a>
-                        <br>
-                        May 2025
-                        <p>
-                            Notes on linear algebra.
-                        </p>
-                    </td>
-                    </tr>
+                            </td>
+                        </tr>
+
                     </tbody>
                 </table>
             </td>
@@ -125,7 +130,8 @@
                             <br>
                             <a href="https://github.com/mrkdh16/lottery-ticket-exploration">Github Repo</a>
                             <p>
-                            Under construction.                            </p>
+                            Under construction.                            
+                        </p>
                             </td>
                         </tr>
                         
