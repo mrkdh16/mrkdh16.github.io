@@ -63,7 +63,39 @@
             <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Expository Works</h2>
                 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-                 <tr onmouseout="occam_stop()" onmouseover="occam_start()">
+                 
+                    <tr onmouseout="weier_stop()" onmouseover="weier_start()">
+                            <td style="padding:16px;width:20%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='weier_second_image'>
+                                <img src='images/weier2.png' width=100%></div>
+                                <img src='images/weier1.png' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function weier_start() {
+                                document.getElementById('weier_second_image').style.opacity = "1";
+                                }
+
+                                function weier_stop() {
+                                document.getElementById('weier_second_image').style.opacity = "0";
+                                }
+                                weier_stop()
+                            </script>
+                            </td>
+                            <td style="padding:8px;width:80%;vertical-align:middle">
+                            <a href="https://mrkdh16.github.io/markedown/Math/Real-Analysis/Weierstrass-Approximation-Theorem" class="hoverZoomLink">
+                                <span class="papertitle">Weierstrass Approximation Theorem: Polynomials approximate continuous functions very well</span>
+                            </a>
+                            <br>
+                            December 2025
+                            <br>
+                            <p>
+                            An analysis proof borrowing tools from the forbidden land of probability.
+                        </p>
+                            </td>
+                        </tr>
+                 
+                    <tr onmouseout="occam_stop()" onmouseover="occam_start()">
                             <td style="padding:16px;width:20%;vertical-align:middle">
                             <div class="one">
                                 <div class="two" id='occam_second_image'>
