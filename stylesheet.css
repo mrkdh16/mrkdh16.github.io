@@ -1,114 +1,126 @@
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAUi-qNiXg7eU0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+/* =========================================
+   1. FONTS & CONFIGURATION
+   ========================================= */
+/* Import both Lato and EB Garamond */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #212529;
+  --text-subtle: #555555;
+  --link-color: #17a2b8;
+  --link-hover: #f09228;
+  --highlight-color: #ffffd0;
+
+  --font-sans: 'Lato', Verdana, Helvetica, sans-serif;
+  --font-serif: 'EB Garamond', serif;
+
+  --main-font: var(--font-sans);
+
+  --base-size: 14px; 
 }
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: local('Lato Italic'), local('Lato-Italic'), url(https://fonts.gstatic.com/s/lato/v15/S6u8w4BMUTPHjxsAXC-qNiXg7Q.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_FQftx9897sxZ.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 700;
-  src: local('Lato Bold Italic'), local('Lato-BoldItalic'), url(https://fonts.gstatic.com/s/lato/v15/S6u_w4BMUTPHjxsI5wq_Gwftx9897g.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjxAwXiWtFCfQ7A.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v15/S6uyw4BMUTPHjx4wXiWtFCc.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwaPGQ3q5d0N7w.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v15/S6u9w4BMUTPHh6UVSwiPGQ3q5d0.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-size: var(--base-size);
+  line-height: 1.6;
 }
 
 a {
-  color: #1772d0;
+  color: var(--link-color);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
-  text-decoration: none;
+  color: var(--link-hover);
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  background-color: #F2F0EF;
+td, th, tr {
+  font-family: var(--main-font);
+  font-size: var(--base-size);
 }
 
 strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 0.95em;
 }
 
 h2 {
-  margin: 0;
+  margin: 0 0 25px 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #b8b8b8;
   font-weight: normal;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 22px;
 }
 
+.name {
+  margin: 0;
+  padding-top: 20px;
+  font-size: 32px;
+  font-family: var(--main-font);
+  font-weight: 400;
+}
+
 .papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.post-title {
+  font-family: 'Google Sans', var(--font-sans); 
+  font-size: 18px;
   font-weight: 700;
 }
 
-.name {
-  padding-top: 20px;
-  margin: 0;
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
+span.highlight {
+  background-color: var(--highlight-color);
+}
+
+.colored-box {
+  color: var(--text-color);
+  padding: 20px;
+  display: inline-block;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+.courses-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 50px;
+}
+
+.course-item {
+  margin-bottom: 25px;
+}
+
+.course-item p {
+  margin: 0 0 5px 0;
+}
+
+.course-description {
+  padding-left: 20px;
+  color: var(--text-subtle);
+  font-style: italic;
+  display: block;
+}
+
+.banner-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
 .one {
@@ -121,80 +133,12 @@ h2 {
   width: 160px;
   height: 160px;
   position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
+  top: 0;
+  left: 0;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s ease-in-out;
 }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
-
-span.highlight {
-  background-color: #ffffd0;
-}
-
-.colored-box {
-    color: black;
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
-}
-
-/* Add some overall structure and breathing room to the main content area. */
-.courses-container {
-    max-width: 800px; /* Keeps lines from getting too long on wide screens */
-    margin: 40px auto; /* Centers the container and adds space top/bottom */
-    padding: 0 20px;   /* Prevents content from touching screen edges */
-}
-
-/* Add space between subject sections to replace the <hr> tags. */
-section {
-    margin-bottom: 50px;
-}
-
-/* Style the section headers for a cleaner look. */
-h2 {
-    padding-bottom: 10px; /* Adds space between the text and the border */
-    border-bottom: 1px solid #b8b8b8; /* A very light, subtle separator line */
-    margin-bottom: 25px; /* Adds space before the list of courses */
-}
-
-/* Add consistent vertical spacing between each course entry. */
-.course-item {
-    margin-bottom: 25px;
-}
-
-/* Tweak paragraph margins for better grouping. */
-.course-item p {
-    margin-top: 0;
-    margin-bottom: 5px; /* Tighter spacing between title and description */
-}
-
-/* Style the course description to look like a sub-note. */
-.course-description {
-    padding-left: 20px; /* Indents the description under the title */
-    color: #555;         /* A dark gray is softer on the eyes than pure black */
-    font-style: italic;  /* A nice touch for personal thoughts */
-}
-
-body {
-    margin: 0; /* This removes the default browser margin */
-    line-height: 1.6;
-    background-color: #F2F0EF;
-    color: #4e4e4e
-}
-.banner-img {
-    width: 100%;
-    height: 120px; /* Adjusted height for better balance */
-    object-fit: cover;
-    object-position: center;
-    display: block;
-}
-.post-title { /* A more appropriate class name for blog titles */
-    font-family: 'Google Sans', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
+.one:hover .two {
+  opacity: 1;
 }

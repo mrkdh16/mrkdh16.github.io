@@ -17,7 +17,54 @@
     <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:0 auto;"><tbody>
       <tr>
         <td style="padding:0px;">
-          <img src="images/banner.jpg" alt="Website Banner" class="banner-img">
+        <img 
+            id="banner-img" 
+            src="images/banner1.jpg" 
+            alt="Website Banner" 
+            class="banner-img"
+            onmouseenter="startBannerSlideshow()" 
+            onmouseleave="stopBannerSlideshow()"
+            style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+        >
+        
+        <script type="text/javascript">
+            var bannerImages = [
+            "images/banner1.jpg",
+            "images/banner3.jpg"
+            ];
+            
+            var bannerIndex = 0;
+            var bannerSlideshowTimer = null;
+            
+            function cycleBanner() {
+            var img = document.getElementById('banner-img');
+            bannerIndex++;
+            if (bannerIndex >= bannerImages.length) {
+                bannerIndex = 0;
+            }
+            img.src = bannerImages[bannerIndex];
+            }
+            
+            function startBannerSlideshow() {
+            if (bannerSlideshowTimer) {
+                clearInterval(bannerSlideshowTimer);
+            }
+            document.getElementById('banner-img').style.filter = 'brightness(1.05)';
+            bannerSlideshowTimer = setInterval(cycleBanner, 1500);
+            }
+
+            function stopBannerSlideshow() {
+            if (bannerSlideshowTimer) {
+                clearInterval(bannerSlideshowTimer);
+                bannerSlideshowTimer = null;
+            }
+            document.getElementById('banner-img').style.filter = 'brightness(1)';
+            }
+            
+            bannerImages.forEach(function(src) {
+            new Image().src = src;
+            });
+        </script>
         </td>
       </tr>
     </tbody></table>
@@ -28,38 +75,135 @@
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
-              <td style="padding:2.5%;width:63%;vertical-align:middle">
+              <td style="padding:2.5%;width:60%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
-                  Mark Rhee
-                </p>
+                    <span id="typing-text"></span><span id="cursor">|</span>
+                    </p>
+
+                    <script type="text/javascript">
+                        const text = "Hello there! I'm Mark.";
+                        let index = 0;
+                        let isPaused = false;
+
+                        function typeWriter() {
+                        if (index < text.length && !isPaused) {
+                            document.getElementById('typing-text').textContent += text.charAt(index);
+                            index++;
+                            
+                            // Pause after "Hello there!"
+                            if (index === 13) { // Position right after the exclamation mark
+                            isPaused = true;
+                            setTimeout(() => {
+                                isPaused = false;
+                                typeWriter();
+                            }, 600); // 800ms pause - adjust as needed
+                            } else {
+                            setTimeout(typeWriter, 100);
+                            }
+                        } else if (index >= text.length) {
+                            // Remove cursor after typing is done
+                            setTimeout(() => {
+                            document.getElementById('cursor').style.display = 'none';
+                            }, 2000);
+                        }
+                        }
+                    
+                    window.addEventListener('load', () => {
+                    setTimeout(typeWriter, 1500);
+                    });
+                    </script>
+
+                    <style>
+                    #cursor {
+                        animation: blink 1s infinite;
+                        font-weight: 100;
+                    }
+                    
+                    @keyframes blink {
+                        0%, 50% { opacity: 1; }
+                        51%, 100% { opacity: 0; }
+                    }
+                    </style>
                 <p>
-                  I'm a (applied) mathematics student at <a href="https://math.berkeley.edu/">UC Berkeley</a> with intended minors in computer science 
-                  and physics. My interests lie at the intersection of fields such as math, computer science, physics, and philosophy. I'm particularly 
-                  interested in the mathematical foundations of machine learning.
+                  I'm an undergraduate at <a href="https://math.berkeley.edu/">UC Berkeley</a> majoring in applied mathematics. My interests lie at the intersection of fields such as math, computer science and physics. I'm particularly 
+                  interested in the mathematical foundations of machine learning. Currently, I'm working at a small lab in the <a href="https://redwood.berkeley.edu/">Redwood Center for Theoretical Neuroscience</a>, where I work on fundamental theories for neural networks.
                 </p>
-                <p style="text-align:center">
-                  <a href="data/resume 2026-02-04.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://www.linkedin.com/in/mark-rhee-b29b72277/">LinkedIn</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/mrkdh16">Github</a>
-                </p>
+
               </td>
-              <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/pfp.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/pfp.jpg" class="hoverZoomLink"></a>
-              </td>
-            </tr>
+                <td style="padding:2.5%;width:37%;max-width:37%">
+                <img 
+                    id="profile-pic" 
+                    onmouseenter="startSlideshow()" 
+                    onmouseleave="stopSlideshow()"
+                    style="cursor:pointer; width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" 
+                    alt="profile photo" 
+                    src="images/pfp1.jpg" 
+                    class="hoverZoomLink"
+                >
+                <script type="text/javascript">
+                    var pfpImages = [
+                    "images/pfp1.jpg",
+                    "images/pfp2.jpg",
+                    "images/pfp3.jpg",
+                    "images/pfp4.jpg",
+                    "images/pfp5.jpg",
+                    "images/pfp6.jpg",
+                    "images/pfp7.jpg",
+                    ];
+                    
+                    var pfpIndex = 0;
+                    var slideshowTimer = null;
+                    
+                    function cyclePfp() {
+                    var img = document.getElementById('profile-pic');
+                    pfpIndex++;
+                    if (pfpIndex >= pfpImages.length) {
+                        pfpIndex = 0;
+                    }
+                    img.src = pfpImages[pfpIndex];
+                    }
+                    
+                    function startSlideshow() {
+                    if (slideshowTimer) {
+                        clearInterval(slideshowTimer);
+                    }
+                    slideshowTimer = setInterval(cyclePfp, 1500);
+                    }
+                    
+                    function stopSlideshow() {
+                    if (slideshowTimer) {
+                        clearInterval(slideshowTimer);
+                        slideshowTimer = null;
+                    }
+                    }
+                    
+                    pfpImages.forEach(function(src) {
+                    new Image().src = src;
+                    });
+                </script>
+                <style>
+                #profile-pic {
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                }
+                #profile-pic:hover {
+                    transform: scale(1.03);
+                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                }
+                </style>
+                </td>
           </tbody></table>
 
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             
-            <tr>
+            <!-- <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <p>
                     At Berkeley, I've taken a wide range of classes&mdash;mostly whatever I found interesting. You can find a list of all the (cool) classes I've taken so far and my thoughts on them <a href="courses.html">here</a>. I store notes and random musings <a href="https://mrkdh16.github.io/markedown/">here</a>. Check it out if you want a peek into my brain.
                 </p>
               </td>
-            </tr>
+            </tr> -->
 
-            <tr>
+            <!-- <tr>
             <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>Expository Works</h2>
                 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
@@ -129,7 +273,7 @@
                     </tbody>
                 </table>
             </td>
-            </tr>
+            </tr> -->
             
             
 
@@ -237,7 +381,7 @@
               </td>
             </tr> -->
             
-          </tbody></table>
+          <!-- </tbody></table>
             <tr>
               <td style="padding:0px">
                 <br>
@@ -246,7 +390,7 @@
                 </p>
               </td>
             </tr>
-          </tbody></table>
+          </tbody></table> -->
 
         </td>
       </tr>
