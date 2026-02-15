@@ -128,7 +128,7 @@
                 <td style="padding:2.5%;width:37%;max-width:37%">
                 <img 
                     id="profile-pic" 
-                    onclick="cyclePfp()"
+                    onclick="cyclePfpOnClick()"
                     onmouseenter="startSlideshow()" 
                     onmouseleave="stopSlideshow()"
                     style="cursor:pointer; width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" 
@@ -147,7 +147,7 @@
                     "images/pfp7.jpg"
                     ];
                     
-                    var pfpIndex = 0;
+                    var pfpIndex = 1;
                     var slideshowTimer = null;
                     
                     function cyclePfp() {
@@ -157,6 +157,16 @@
                         pfpIndex = 0;
                     }
                     img.src = pfpImages[pfpIndex];
+                    }
+
+                    function cyclePfpOnClick() {
+                    var img = document.getElementById('profile-pic');
+                    pfpIndex++;
+                    if (pfpIndex >= pfpImages.length) {
+                        pfpIndex = 0;
+                    }
+                    img.src = pfpImages[pfpIndex];
+                    startSlideshow();
                     }
                     
                     function startSlideshow() {
