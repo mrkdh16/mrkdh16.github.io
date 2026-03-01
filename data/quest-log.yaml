@@ -1,0 +1,248 @@
+# ─────────────────────────────────────────────────────────────────
+# quest-log.yaml  —  Quest Log content data
+# mrkdh16.github.io/quest-log.html
+#
+# Edit this file to update all page content. The page loads and
+# parses this file at runtime; no code changes needed.
+#
+# ── SCHEMA ────────────────────────────────────────────────────────
+#
+# meta
+#   .season        string   Subtitle shown in page header
+#   .lastUpdated   string   ISO date (YYYY-MM-DD) for footer
+#   .level         string   Footer flavor badge text
+#
+# semester
+#   .name          string   Display name (e.g. "Spring 2026")
+#   .start         string   ISO date — first day of classes
+#   .end           string   ISO date — last day of finals
+#   .milestones[]
+#     .date        string   ISO date
+#     .label       string   Short label (≤6 chars)
+#
+# stats[]          RPG-style stat bars shown as a compact panel
+#   .label         string   2–3 char abbreviation (e.g. "INT")
+#   .name          string   Full name shown in tooltip
+#   .value         number   Current value
+#   .max           number   Max value (bar fills to value/max)
+#   .display       string   Human-readable label shown on row
+#
+# semesterGoals[]  Resets each term. Completed items stay visible.
+#   .name          string   Short goal title
+#   .sub           string   Course code, project, or context
+#   .status        string   "done" | "wip" | "todo"
+#   .detail        string   Tooltip body text (multi-line OK)
+#   .tags          string[] Optional tags (reserved for filtering)
+#
+# yearGoals[]      Resets each year. Completed items stay visible.
+#   .text          string   Goal description
+#   .status        string   "done" | "wip" | "todo"
+#   .detail        string   Tooltip body text
+#   .completedDate string   Optional ISO date shown in tooltip
+#
+# longtermGoals[]  Never resets. Completed items hidden by default.
+#   .name          string   Goal name
+#   .sub           string   Sub-label or timeframe
+#   .status        string   "done" | "wip" | "todo"
+#   .detail        string   Tooltip body text
+#   .completedDate string   Optional ISO date
+#
+# quotes[]         Strings for the avatar speech bubble easter egg
+#
+# ─────────────────────────────────────────────────────────────────
+
+meta:
+  season:      "Spring 2026"
+  lastUpdated: "2026-02-27"
+  level:       "LVL 4 Undergrad"
+
+semester:
+  name:  "Spring 2026"
+  start: "2026-01-20"
+  end:   "2026-05-15"
+  milestones:
+    - date:  "2026-02-20"
+      label: "MT 1"
+    - date:  "2026-03-23"
+      label: "Break"
+    - date:  "2026-04-10"
+      label: "MT 2"
+    - date:  "2026-04-27"
+      label: "RRR"
+    - date:  "2026-05-05"
+      label: "Finals"
+
+stats:
+  - label:   "INT"
+    name:    "Intelligence"
+    value:   3.82
+    max:     4.0
+    display: "3.82 GPA"
+  - label:   "CON"
+    name:    "Constitution"
+    value:   8
+    max:     13.1
+    display: "8 mi long run"
+  - label:   "WIS"
+    name:    "Wisdom"
+    value:   5
+    max:     24
+    display: "5/24 books"
+  - label:   "STR"
+    name:    "Strength"
+    value:   0
+    max:     3
+    display: "0/3 papers"
+  - label:   "DEX"
+    name:    "Dexterity"
+    value:   11
+    max:     14
+    display: "11/14 psets on time"
+
+semesterGoals:
+  - name:   "Complex Analysis"
+    sub:    "MATH 185"
+    status: "wip"
+    detail: >-
+      Working through contour integrals and residue calculus.
+      Midterm 2 coming up — need to review conformal mappings.
+
+  - name:   "Machine Learning"
+    sub:    "CS 189"
+    status: "wip"
+    detail: >-
+      Kaggle competition due in 3 weeks. Currently building an
+      ensemble model. Also need to finish the kernel methods pset.
+
+  - name:   "Quantum Mechanics"
+    sub:    "PHYS 137A"
+    status: "wip"
+    detail: >-
+      Perturbation theory is clicking. Time-dependent perturbations
+      next. WKB approximation still a bit fuzzy.
+
+  - name:   "Sparse Coding Paper"
+    sub:    "Redwood Lab"
+    status: "todo"
+    detail: >-
+      Draft due end of semester. Need to finish convergence proofs
+      and run simulations on the new Hebbian learning rule variant.
+
+  - name:   "MacKay Ch. 22-28"
+    sub:    "Self-study"
+    status: "wip"
+    detail: >-
+      Boltzmann machines chapter done. Moving into Gaussian processes
+      and Monte Carlo methods.
+
+  - name:   "Half Marathon"
+    sub:    "Personal"
+    status: "wip"
+    detail: >-
+      Berkeley Half on April 12. Currently running 8mi long runs.
+      Need to hit 10mi by mid-March.
+
+yearGoals:
+  - text:   "Publish first paper (sparse coding convergence)"
+    status: "wip"
+    detail: >-
+      Targeting ICML 2026 workshop deadline in June.
+      Draft in progress with advisor review.
+
+  - text:   "Finish Genki I & II (Japanese)"
+    status: "todo"
+    detail: >-
+      Haven't started yet. Planning to begin in summer.
+      Goal: basic conversational fluency by December.
+
+  - text:   "Complete digital garden v2"
+    status: "done"
+    completedDate: "2026-01-15"
+    detail: >-
+      Shipped! New system uses MDX with backlinks.
+      Still tweaking the graph visualization.
+
+  - text:   "GPA above 3.8"
+    status: "wip"
+    detail: >-
+      Currently at 3.82. Complex analysis is the risk —
+      need strong performance on remaining exams.
+
+  - text:   "Run a full marathon"
+    status: "todo"
+    detail: >-
+      Targeting the SF Marathon in July.
+      Half marathon in April is the first checkpoint.
+
+  - text:   "Read 24 books"
+    status: "wip"
+    detail: >-
+      5 finished, 2 in progress. Slightly behind pace
+      (should be at 4 by end of February).
+
+  - text:   "Build a side project with Rust"
+    status: "todo"
+    detail: >-
+      Want to build a small numerical computing library.
+      Maybe port some of the sparse coding simulations.
+
+longtermGoals:
+  - name:   "PhD in computational neuroscience or ML theory"
+    sub:    "Applying Fall 2027"
+    status: "wip"
+    detail: >-
+      Top choices: MIT BCS, Stanford Neuro, Berkeley (stay).
+      Need strong publication record. Building advisor relationships.
+
+  - name:   "Contribute to fundamental understanding of neural learning"
+    sub:    "Career north star"
+    status: "wip"
+    detail: >-
+      Bridge between biological learning rules and modern deep
+      learning theory. Sparse coding work is a first step.
+
+  - name:   "Become conversational in 3 languages"
+    sub:    "English + Korean: done. Japanese: in progress."
+    status: "wip"
+    detail: >-
+      English and Korean are native/fluent. Japanese is the current
+      target. Maybe Mandarin after that.
+
+  - name:   "Run an ultramarathon (50k)"
+    sub:    "Before 30"
+    status: "todo"
+    detail: >-
+      Building up distance gradually. Marathon first (2026),
+      then 50k. Eyeing trail ultras in the Bay Area.
+
+  - name:   "Write a textbook on mathematical foundations of neural computation"
+    sub:    "Long-term project"
+    status: "todo"
+    detail: >-
+      Long-term dream. Want to write the book I wish existed when
+      I started research. Need 5-10 more years of depth first.
+
+  - name:   "Deep mastery of tensor decompositions"
+    sub:    "Completed 2024"
+    status: "done"
+    completedDate: "2024-12-01"
+    detail: >-
+      Deep dive into Tucker, CP, and tensor-train decompositions.
+      Now applied regularly in sparse coding research.
+
+quotes:
+  - "The semester waits for no one..."
+  - "Need more coffee."
+  - "404: motivation not found"
+  - "d/dt(sanity) < 0"
+  - "Is it spring break yet?"
+  - "Remember to touch grass."
+  - "One more problem set..."
+  - "git commit -m 'fix everything'"
+  - "Proof by intimidation."
+  - "Should be sleeping rn."
+  - "Boltzmann would approve. Maybe."
+  - "Have you tried gradient descent on life?"
+  - "Eigenvalues? More like eigenproblems."
+  - "Saving... please don't close the tab."
+  - "Expectation: research. Reality: debugging."
