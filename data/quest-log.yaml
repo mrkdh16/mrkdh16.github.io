@@ -131,8 +131,8 @@ semesterGoals:
 
 yearGoals:
 
-  - text:   "Flab research — try to get funding"
-    status: "todo"
+  - text:   "FLAB research"
+    status: "wip"
     detail: >-
       Summer 2026. Push forward on research; explore funding options
       like SURF, NSF REU, or lab grants.
@@ -155,15 +155,7 @@ yearGoals:
       for the following summer.
 
 longtermGoals:
-  - name:   "PhD in comp-neuro or ML theory"
-    sub:    "Applying 2027–2028"
-    status: "wip"
-    detail: >-
-      Target labs: Stanford Ganguli (neural computation theory),
-      UCL Saxe (theory of learning), Andrew Gordon Wilson
-      (generalization, implicit bias, Bayesian deep learning).
-
-  - name:   "Scientific theory of deep learning: what/how do networks learn?"
+  - name:   "Scientific theory of deep learning: what and how do networks learn?"
     sub:    "Research north star"
     status: "wip"
     detail: >-
@@ -171,6 +163,25 @@ longtermGoals:
       Key threads: feature learning, learned representations,
       Dhruva's work on semantic structure / elementwise statistics
       ↔ spectral geometry ↔ computation.
+  - name:   "PhD in comp-neuro or ML theory"
+    sub:    "Applying 2028"
+    status: "todo"
+    detail: >-
+      Target labs: Stanford Ganguli (neural computation theory),
+      UCL Saxe (theory of learning), Andrew Gordon Wilson
+      (generalization, implicit bias, Bayesian deep learning).
+  - name:   "Start research journey"
+    sub:    "Gettin' Flabby"
+    status: "done"
+    detail: >-
+  - name:   "Get into Berkeley (undergrad)"
+    sub:    "Pretty dope"
+    status: "done"
+    detail: >-
+  - name:   "Move to the US"
+    sub:    "Big life event"
+    status: "done"
+    detail: >-
 
 quotes:
   - "The semester waits for no one..."

@@ -97,6 +97,8 @@
                             setTimeout(typeWriter, 100);
                             }
                         } else if (index >= text.length) {
+                            document.getElementById('typing-text').innerHTML =
+                                "Hello there! I'm <a href='/quest-log.html' style='color:inherit;text-decoration:none;'>Mark</a>.";
                             setTimeout(() => {
                             document.getElementById('cursor').style.display = 'none';
                             }, 2000);
