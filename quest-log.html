@@ -156,7 +156,7 @@ html.light .boot-box { background: var(--surface2); }
   align-items: center; margin-bottom: 6px;
 }
 .header__title { font-size: 13px; color: var(--accent); letter-spacing: 1px; }
-.header__blink { animation: blink 1s step-end infinite; }
+.header__blink { animation: blink 1.5s step-end infinite; }
 .header__right { display: flex; align-items: center; gap: 10px; }
 .header__back  {
   font-size: 7px; color: var(--text-dim);
@@ -213,11 +213,11 @@ html.light .boot-box { background: var(--surface2); }
   position: relative;
   box-shadow: inset 0 -2px 0 rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
 }
-.progress-cursor {
+/* .progress-cursor {
   position: absolute; right: -1px; top: 2px;
   width: 2px; height: calc(100% - 4px);
   background: #8ecae6; animation: blink 1s step-end infinite;
-}
+} */
 .progress-ms { position: relative; height: 32px; margin-top: 4px; }
 .ms {
   position: absolute; display: flex;
@@ -508,37 +508,6 @@ html.light .gtip { background: var(--surface); box-shadow: 0 4px 16px rgba(0,0,0
 }
 
 /* ═══════════════════════════════════════════════
-   AVATAR
-   ═══════════════════════════════════════════════ */
-.avatar-wrap {
-  position: fixed; z-index: 500; pointer-events: none;
-  transition: top 0.8s cubic-bezier(0.25,0.46,0.45,0.94);
-}
-.avatar {
-  width: 32px; height: 40px; image-rendering: pixelated;
-  pointer-events: auto; cursor: pointer; position: relative;
-}
-.avatar canvas { width: 32px; height: 40px; image-rendering: pixelated; display: block; }
-.avatar::after {
-  content: ''; position: absolute; bottom: -2px; left: 50%; transform: translateX(-50%);
-  width: 18px; height: 4px;
-  background: radial-gradient(ellipse, rgba(0,0,0,0.35) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.speech {
-  position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%);
-  background: var(--surface); border: 2px solid var(--border-hi);
-  padding: 5px 8px; font-size: 6px; color: var(--text-bright);
-  white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.15s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-}
-.speech.on { opacity: 1; }
-.speech::after {
-  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
-  border: 4px solid transparent; border-top-color: var(--border-hi);
-}
-
-/* ═══════════════════════════════════════════════
    FADE-IN ANIMATIONS
    ═══════════════════════════════════════════════ */
 .fade-in {
@@ -575,7 +544,6 @@ html.light .gtip { background: var(--surface); box-shadow: 0 4px 16px rgba(0,0,0
   .page            { padding: 1.5rem 1rem 3rem; }
   .semester-grid   { grid-template-columns: 1fr; }
   .header__title   { font-size: 11px; }
-  .avatar-wrap     { display: none; }
   .stat-value      { min-width: 70px; }
 }
 </style>
@@ -690,20 +658,13 @@ html.light .gtip { background: var(--surface); box-shadow: 0 4px 16px rgba(0,0,0
 
 </div><!-- /.page -->
 
-<!-- Avatar -->
-<div class="avatar-wrap" id="avatarWrap">
-  <div class="speech" id="speech"></div>
-  <div class="avatar" id="avatar">
-    <canvas id="spriteCanvas" width="16" height="20"></canvas>
-  </div>
-</div>
 
 <!-- Global tooltip element -->
-<div class="gtip" id="gtip">
+<!-- <div class="gtip" id="gtip">
   <div class="gtip__body" id="gtipBody"></div>
   <div class="gtip__meta" id="gtipMeta"></div>
   <div class="gtip__arrow" id="gtipArrow"></div>
-</div>
+</div> -->
 
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 <script>
@@ -1067,84 +1028,6 @@ fetch('/data/quest-log.yaml')
   });
 })();
 
-// ─────────────────────────────────────────────
-// AVATAR  (pixel character + speech bubble)
-// ─────────────────────────────────────────────
-(function initAvatar() {
-  const wrap   = document.getElementById('avatarWrap');
-  const canvas = document.getElementById('spriteCanvas');
-  const speech = document.getElementById('speech');
-
-  const PAL  = [null,'#131020','#f0c890','#2a2040','#219ebc','#1a7a9b','#2a2a3e','#131020','#fff'];
-  const IDLE = [
-    [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0],
-    [0,0,0,0,1,3,3,3,3,1,0,0,0,0,0,0],
-    [0,0,0,1,3,3,3,3,3,3,1,0,0,0,0,0],
-    [0,0,0,1,2,2,2,2,2,2,1,0,0,0,0,0],
-    [0,0,0,1,2,8,2,2,8,2,1,0,0,0,0,0],
-    [0,0,0,1,2,2,2,2,2,2,1,0,0,0,0,0],
-    [0,0,0,0,1,2,1,1,2,1,0,0,0,0,0,0],
-    [0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0],
-    [0,0,0,0,1,4,5,5,4,1,0,0,0,0,0,0],
-    [0,0,0,1,2,5,5,5,5,2,1,0,0,0,0,0],
-    [0,0,0,1,2,5,5,5,5,2,1,0,0,0,0,0],
-    [0,0,0,0,1,5,5,5,5,1,0,0,0,0,0,0],
-    [0,0,0,0,1,6,6,6,6,1,0,0,0,0,0,0],
-    [0,0,0,0,1,6,1,1,6,1,0,0,0,0,0,0],
-    [0,0,0,0,1,7,0,0,7,1,0,0,0,0,0,0],
-  ];
-  const BLINK = IDLE.map((r, y) => y === 4 ? [0,0,0,1,2,1,2,2,1,2,1,0,0,0,0,0] : [...r]);
-
-  function draw(frame) {
-    const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, 16, 20);
-    for (let y = 0; y < frame.length; y++)
-      for (let x = 0; x < 16; x++)
-        if (frame[y][x]) { ctx.fillStyle = PAL[frame[y][x]]; ctx.fillRect(x, y + (20 - frame.length), 1, 1); }
-  }
-
-  const sections  = document.querySelectorAll('[id^="sec-"]');
-  let   current   = sections[0];
-  let   blinkT    = 0, blinking = false, bubbleTo = null;
-
-  function getLeft() {
-    const p = document.querySelector('.page');
-    return p ? p.getBoundingClientRect().left - 44 : -44;
-  }
-
-  function update() {
-    const sy = window.scrollY + window.innerHeight * 0.4;
-    sections.forEach(s => { if (s.getBoundingClientRect().top + window.scrollY < sy) current = s; });
-    wrap.style.left = getLeft() + 'px';
-  }
-
-  function loop() {
-    const bob = Math.sin(performance.now() / 500) * 1.2;
-    if (current) {
-      const r = current.getBoundingClientRect();
-      wrap.style.top = (r.top + window.scrollY + r.height / 2 - 20 + bob) + 'px';
-    }
-    blinkT++;
-    if (!blinking && Math.random() < 0.005) { blinking = true; blinkT = 0; }
-    if (blinking && blinkT > 8) blinking = false;
-    draw(blinking ? BLINK : IDLE);
-    requestAnimationFrame(loop);
-  }
-
-  document.getElementById('avatar').addEventListener('click', () => {
-    const qs = (window._quotes && window._quotes.length)
-      ? window._quotes
-      : ['The semester waits for no one...', 'Need more coffee.', '404: motivation not found'];
-    speech.textContent = qs[Math.floor(Math.random() * qs.length)];
-    speech.classList.add('on');
-    clearTimeout(bubbleTo);
-    bubbleTo = setTimeout(() => speech.classList.remove('on'), 3000);
-  });
-
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-  setTimeout(() => { update(); requestAnimationFrame(loop); }, 100);
-})();
 </script>
 </body>
 </html>

@@ -53,182 +53,124 @@
 
 meta:
   season:      "Spring 2026"
-  lastUpdated: "2026-02-27"
-  level:       "LVL 4 Undergrad"
+  lastUpdated: "2026-03-02"
+  level:       "LVL 2 Undergrad"
 
 semester:
   name:  "Spring 2026"
   start: "2026-01-20"
   end:   "2026-05-15"
   milestones:
-    - date:  "2026-02-20"
-      label: "MT 1"
     - date:  "2026-03-23"
       label: "Break"
-    - date:  "2026-04-10"
-      label: "MT 2"
     - date:  "2026-04-27"
       label: "RRR"
     - date:  "2026-05-05"
       label: "Finals"
 
-stats:
-  - label:   "INT"
-    name:    "Intelligence"
-    value:   3.82
-    max:     4.0
-    display: "3.82 GPA"
-  - label:   "CON"
-    name:    "Constitution"
-    value:   8
-    max:     13.1
-    display: "8 mi long run"
-  - label:   "WIS"
-    name:    "Wisdom"
-    value:   5
-    max:     24
-    display: "5/24 books"
-  - label:   "STR"
-    name:    "Strength"
-    value:   0
-    max:     3
-    display: "0/3 papers"
-  - label:   "DEX"
-    name:    "Dexterity"
-    value:   11
-    max:     14
-    display: "11/14 psets on time"
+# stats:
+#   - label:   "INT"
+#     name:    "Intelligence"
+#     value:   3.98
+#     max:     4.0
+#     display: "3.98 GPA"
+#   - label:   "CON"
+#     name:    "Constitution"
+#     value:   8
+#     max:     13.1
+#     display: "8 mi long run"
+#   - label:   "WIS"
+#     name:    "Wisdom"
+#     value:   5
+#     max:     24
+#     display: "5/24 books"
+#   - label:   "STR"
+#     name:    "Strength"
+#     value:   0
+#     max:     3
+#     display: "0/3 papers"
+#   - label:   "DEX"
+#     name:    "Dexterity"
+#     value:   11
+#     max:     14
+#     display: "11/14 psets on time"
 
 semesterGoals:
-  - name:   "Complex Analysis"
-    sub:    "MATH 185"
-    status: "wip"
+  - name:   "CS Comp Review"
+    sub:    "CS dept"
+    status: "done"
     detail: >-
-      Working through contour integrals and residue calculus.
-      Midterm 2 coming up — need to review conformal mappings.
+      Completed.
 
-  - name:   "Machine Learning"
-    sub:    "CS 189"
-    status: "wip"
-    detail: >-
-      Kaggle competition due in 3 weeks. Currently building an
-      ensemble model. Also need to finish the kernel methods pset.
-
-  - name:   "Quantum Mechanics"
-    sub:    "PHYS 137A"
-    status: "wip"
-    detail: >-
-      Perturbation theory is clicking. Time-dependent perturbations
-      next. WKB approximation still a bit fuzzy.
-
-  - name:   "Sparse Coding Paper"
-    sub:    "Redwood Lab"
+  - name:   "Muon Writeup"
+    sub:    "Physics"
     status: "todo"
     detail: >-
-      Draft due end of semester. Need to finish convergence proofs
-      and run simulations on the new Hebbian learning rule variant.
+      Write up notes and analysis on muon physics.
 
-  - name:   "MacKay Ch. 22-28"
-    sub:    "Self-study"
+  - name:   "Quantum Writeup"
+    sub:    "PHYS 137A"
+    status: "todo"
+    detail: >-
+      Consolidate quantum mechanics notes into a clean writeup.
+
+  - name:   "Complex Analysis Writeup"
+    sub:    "MATH 185"
+    status: "todo"
+    detail: >-
+      Core idea: holomorphic functions are information-rich precisely
+      because they're highly constrained — analyticity in one region
+      determines the whole function.
+
+  - name:   "Learning Mechanic's Toolkit"
+    sub:    "Writing"
     status: "wip"
     detail: >-
-      Boltzmann machines chapter done. Moving into Gaussian processes
-      and Monte Carlo methods.
-
-  - name:   "Half Marathon"
-    sub:    "Personal"
-    status: "wip"
-    detail: >-
-      Berkeley Half on April 12. Currently running 8mi long runs.
-      Need to hit 10mi by mid-March.
+      Building a personal toolkit of mental models and techniques
+      for learning hard technical material efficiently.
 
 yearGoals:
-  - text:   "Publish first paper (sparse coding convergence)"
-    status: "wip"
-    detail: >-
-      Targeting ICML 2026 workshop deadline in June.
-      Draft in progress with advisor review.
 
-  - text:   "Finish Genki I & II (Japanese)"
+  - text:   "Flab research — try to get funding"
     status: "todo"
     detail: >-
-      Haven't started yet. Planning to begin in summer.
-      Goal: basic conversational fluency by December.
+      Summer 2026. Push forward on research; explore funding options
+      like SURF, NSF REU, or lab grants.
 
-  - text:   "Complete digital garden v2"
-    status: "done"
-    completedDate: "2026-01-15"
-    detail: >-
-      Shipped! New system uses MDX with backlinks.
-      Still tweaking the graph visualization.
-
-  - text:   "GPA above 3.8"
-    status: "wip"
-    detail: >-
-      Currently at 3.82. Complex analysis is the risk —
-      need strong performance on remaining exams.
-
-  - text:   "Run a full marathon"
+  - text:   "Read: Active Inference, The Brain Abstracted, Deep Representations"
     status: "todo"
     detail: >-
-      Targeting the SF Marathon in July.
-      Half marathon in April is the first checkpoint.
+      Summer 2026. Active Inference (Friston et al.), The Brain Abstracted,
+      and Deep Representations (Yi Ma).
 
-  - text:   "Read 24 books"
-    status: "wip"
-    detail: >-
-      5 finished, 2 in progress. Slightly behind pace
-      (should be at 4 by end of February).
-
-  - text:   "Build a side project with Rust"
+  - text:   "Grad stat courses (STAT 210A)"
     status: "todo"
     detail: >-
-      Want to build a small numerical computing library.
-      Maybe port some of the sparse coding simulations.
+      Fall 2026. Upper-division probability and statistics.
+
+  - text:   "Look into research internships"
+    status: "todo"
+    detail: >-
+      Fall 2026. Identify and apply to research internships
+      for the following summer.
 
 longtermGoals:
-  - name:   "PhD in computational neuroscience or ML theory"
-    sub:    "Applying Fall 2027"
+  - name:   "PhD in comp-neuro or ML theory"
+    sub:    "Applying 2027–2028"
     status: "wip"
     detail: >-
-      Top choices: MIT BCS, Stanford Neuro, Berkeley (stay).
-      Need strong publication record. Building advisor relationships.
+      Target labs: Stanford Ganguli (neural computation theory),
+      UCL Saxe (theory of learning), Andrew Gordon Wilson
+      (generalization, implicit bias, Bayesian deep learning).
 
-  - name:   "Contribute to fundamental understanding of neural learning"
-    sub:    "Career north star"
+  - name:   "Scientific theory of deep learning: what/how do networks learn?"
+    sub:    "Research north star"
     status: "wip"
     detail: >-
-      Bridge between biological learning rules and modern deep
-      learning theory. Sparse coding work is a first step.
-
-  - name:   "Become conversational in 3 languages"
-    sub:    "English + Korean: done. Japanese: in progress."
-    status: "wip"
-    detail: >-
-      English and Korean are native/fluent. Japanese is the current
-      target. Maybe Mandarin after that.
-
-  - name:   "Run an ultramarathon (50k)"
-    sub:    "Before 30"
-    status: "todo"
-    detail: >-
-      Building up distance gradually. Marathon first (2026),
-      then 50k. Eyeing trail ultras in the Bay Area.
-
-  - name:   "Write a textbook on mathematical foundations of neural computation"
-    sub:    "Long-term project"
-    status: "todo"
-    detail: >-
-      Long-term dream. Want to write the book I wish existed when
-      I started research. Need 5-10 more years of depth first.
-
-  - name:   "Deep mastery of tensor decompositions"
-    sub:    "Completed 2024"
-    status: "done"
-    completedDate: "2024-12-01"
-    detail: >-
-      Deep dive into Tucker, CP, and tensor-train decompositions.
-      Now applied regularly in sparse coding research.
+      Big question: how and what do deep networks learn?
+      Key threads: feature learning, learned representations,
+      Dhruva's work on semantic structure / elementwise statistics
+      ↔ spectral geometry ↔ computation.
 
 quotes:
   - "The semester waits for no one..."
