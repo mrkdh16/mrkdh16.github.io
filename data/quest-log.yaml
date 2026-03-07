@@ -103,73 +103,52 @@ semesterGoals:
       Completed.
 
   - name:   "Muon Writeup"
-    sub:    "Physics"
-    status: "todo"
+    sub:    "Research"
+    status: "wip"
     detail: >-
-      Write up notes and analysis on muon physics.
 
   - name:   "Quantum Writeup"
-    sub:    "PHYS 137A"
+    sub:    "PHYS 5C"
     status: "todo"
     detail: >-
-      Consolidate quantum mechanics notes into a clean writeup.
+      Explore experimental setup, setting up and testing hypotheses, using toy models and ansatz solutions.
 
   - name:   "Complex Analysis Writeup"
     sub:    "MATH 185"
     status: "todo"
     detail: >-
       Core idea: holomorphic functions are information-rich precisely
-      because they're highly constrained — analyticity in one region
-      determines the whole function.
+      because they're highly constrained.
 
   - name:   "Learning Mechanic's Toolkit"
     sub:    "Writing"
     status: "wip"
     detail: >-
-      Building a personal toolkit of mental models and techniques
-      for learning hard technical material efficiently.
 
 yearGoals:
 
   - text:   "FLAB research"
     status: "wip"
     detail: >-
-      Summer 2026. Push forward on research; explore funding options
-      like SURF, NSF REU, or lab grants.
-
-  - text:   "Read: Active Inference, The Brain Abstracted, Deep Representations"
+  - text:   "Become a junior learning mechanic"
+    status: "wip"
+    detail: >-
+  - text:   "Publish first paper"
     status: "todo"
     detail: >-
-      Summer 2026. Active Inference (Friston et al.), The Brain Abstracted,
-      and Deep Representations (Yi Ma).
-
-  - text:   "Grad stat courses (STAT 210A)"
-    status: "todo"
-    detail: >-
-      Fall 2026. Upper-division probability and statistics.
-
   - text:   "Look into research internships"
     status: "todo"
     detail: >-
-      Fall 2026. Identify and apply to research internships
-      for the following summer.
 
 longtermGoals:
-  - name:   "Scientific theory of deep learning: what and how do networks learn?"
+  - name:   "A scientific theory for emergent intelligence in machines"
     sub:    "Research north star"
     status: "wip"
     detail: >-
-      Big question: how and what do deep networks learn?
-      Key threads: feature learning, learned representations,
-      Dhruva's work on semantic structure / elementwise statistics
-      ↔ spectral geometry ↔ computation.
-  - name:   "PhD in comp-neuro or ML theory"
+  - name:   "PhD"
     sub:    "Applying 2028"
     status: "todo"
     detail: >-
-      Target labs: Stanford Ganguli (neural computation theory),
-      UCL Saxe (theory of learning), Andrew Gordon Wilson
-      (generalization, implicit bias, Bayesian deep learning).
   - name:   "Start research journey"
     sub:    "Gettin' Flabby"
     status: "done"
