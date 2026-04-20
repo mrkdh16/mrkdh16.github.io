@@ -1,0 +1,99 @@
+weeks:
+  - week: 1
+    type: no-class
+    topic: "First Week: No Class"
+
+  - week: 2
+    topic: "Introduction to Learning Mechanics"
+    reading: 'Simon et al. (2026), "There Will Be a Scientific Theory of Deep Learning"'
+    description: |-
+      <strong>Big idea:</strong> The physicist&rsquo;s approach to studying deep learning. What do we mean by a scientific theory of deep learning? The seven desiderata. Overview of the five lines of evidence. Why theory matters for engineering and safety.
+
+  - week: 3
+    topic: "Analytically Solvable Settings I: Deep Linear Networks"
+    reading: "Saxe, McClelland &amp; Ganguli (2014), &ldquo;Exact Solutions to the Nonlinear Dynamics of Learning in Deep Linear Neural Networks&rdquo; + Mark&rsquo;s blog post"
+    description: |-
+      <strong>Big idea:</strong> Analyzing models that are linear in the data&mdash;<em>f</em> is a linear function of <em>x</em>. Gradient flow decouples into solvable Bernoulli ODEs. Sequential learning of singular modes and greedy low-rank bias. Gain insight into the role of depth.
+
+  - week: 4
+    topic: "Analytically Solvable Settings II: The NTK and Kernel Regression"
+    reading: "Lee et al. (2019) or Jacot, Gabriel &amp; Hongler (2018), &ldquo;Neural Tangent Kernel&rdquo; + Lil&rsquo;Log blog post"
+    description: |-
+      <strong>Big idea:</strong> Analyzing models that are linear in the parameters&mdash;<em>f</em><sub>lin</sub> is a linear function of the parameters of <em>f</em>, and <em>f</em><sub>lin</sub> &approx; <em>f</em> for large width. Kernel regression as a tractable model for wide neural nets.
+
+  - week: 5
+    type: guest
+    topic: "Analytically Solvable Settings III: Eigenlearning and the HEA"
+    badge: "Jamie / Joey guest lecture (?)"
+    reading: "Simon et al. (2023), &ldquo;The Eigenlearning Framework&rdquo; + Karkada et al. (2025), &ldquo;Predicting Kernel Regression Learning Curves from Only Raw Data Statistics&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> Predict expected generalization error of KRR by accounting for input data structure. Apply the eigenframework to realistic data distributions with the Heuristic Eigenlearning Ansatz. Real data distribution &rarr; eigenframework &rarr; predict generalization error.
+
+  - week: 6
+    topic: "Insightful Limits: Lazy vs. Rich Dichotomy and &mu;P"
+    reading: "Chizat, Oyallon &amp; Bach (2019), &ldquo;On Lazy Training in Differentiable Programming&rdquo; + Yang et al. (2022), &ldquo;Tensor Programs V&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> When and why does feature learning happen? Infinite-width limits and the lazy/rich dichotomy. &mu;P as the Maximal Update Parameterization that enables hyperparameter transfer. A triumph of theory impacting practice.
+
+  - week: 7
+    topic: "Macroscopic Regularities: Neural Collapse &amp; the Neural Feature Ansatz"
+    reading: "Papyan, Han &amp; Donoho (2020), &ldquo;Prevalence of Neural Collapse&rdquo; + Radhakrishnan et al. (2024), &ldquo;Mechanism for Feature Learning in Neural Networks&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> Coarse-grained picture of feature learning. Neural collapse: simplex geometry of class means. The neural feature ansatz: first-layer weight alignment with average gradient outer products. Building theory top-down from empirical regularities.
+
+  - week: 8
+    type: guest
+    topic: "Universality: The Platonic Representation Hypothesis &amp; Fourier Features"
+    badge: "Dhruva guest lecture (?)"
+    reading: "Huh et al. (2024), &ldquo;The Platonic Representation Hypothesis&rdquo; + Karkada et al. (2026), &ldquo;Symmetry in Language Statistics Shapes the Geometry of Model Representations&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> Universal convergence of representations across architectures and modalities. How translational symmetry in language statistics provably induces Fourier features in word embeddings&mdash;and we see exactly this in LLMs. A tight theory-empirics connection exemplifying learning mechanics.
+
+  - week: 9
+    topic: "Learning Mechanics &harr; Mechanistic Interpretability"
+    reading: "Simon et al. (2026), Section 4 + Welch Labs video on grokking"
+    description: |-
+      <strong>Big idea:</strong> The physics&ndash;biology analogy. How learning mechanics formalizes mech interp assumptions (linearity, sparsity, compositionality). How mech interp discoveries drive theory. Connection between grokking and Dhruva&rsquo;s translational symmetry &rarr; Fourier features idea.
+
+  - week: 10
+    topic: "Edge of Stability and Optimization Phenomena"
+    reading: "Cohen et al. (2021), &ldquo;Gradient Descent on Neural Networks Typically Occurs at the Edge of Stability&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> Progressive sharpening and the 2/&eta; threshold. Implicit curvature regularization by optimizers. Central flows and curvature-penalized gradient flow. How hyperparameters modulate curvature penalties.
+
+  - week: 11
+    topic: "Beyond Linearization: Nonlinear Toy Models"
+    reading: "Bordelon, Atanasov &amp; Pehlevan (2025), &ldquo;How Feature Learning Can Improve Neural Scaling Laws&rdquo; or Morwani et al. (2023), &ldquo;Feature Emergence via Margin Maximization&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> Moving beyond linearized/kernel models. Teacher&ndash;student models and multi-index models. Feature learning improving sample complexity. Modular arithmetic and grokking as test beds. The frontier of genuinely nonlinear solvable models.
+
+  - week: 12
+    topic: "Neural Scaling Laws"
+    reading: 'Kaplan et al. (2020), "Scaling Laws for Neural Language Models"'
+    description: |-
+      <strong>Big idea:</strong> Power-law scaling of loss with compute, data, and parameters. Candidate explanations: data manifold dimension, feature superposition, task structure. Why can&rsquo;t we predict exponents a priori? Compute-optimal training.
+
+  - week: 13
+    topic: "Implicit Regularization and Simplicity Bias"
+    reading: "TBD&mdash;candidates include: Blanc et al. (2020), &ldquo;Implicit Regularization for Deep Neural Networks&rdquo;; Kalimeris et al. (2019), &ldquo;SGD on Neural Networks Learns Functions of Increasing Complexity&rdquo;; or Cohen et al. (2025), &ldquo;Understanding Optimization in Deep Learning with Central Flows&rdquo;"
+    description: |-
+      <strong>Big idea:</strong> Do neural networks implicitly minimize some notion of functional complexity? Simplicity bias, spectral bias, and maximum margin. How optimizers steer toward simpler solutions. Connections to the sparse features and circuits studied by mech interp.
+
+  - week: 14
+    type: presentation
+    topic: "Final Project: Hypothesis Presentations"
+    reading: "No new reading"
+    description: |-
+      Students present their hypotheses, planned experimental setups, and preliminary thinking. Short talks (~5 min each) followed by class feedback and Q&amp;A. <strong style="color:#c4956a;">&darr; Final report due end of semester.</strong>
+
+  - week: 15
+    type: presentation
+    topic: "Final Project: Office Hours &amp; Lab Support"
+    badge: "FLAB members (?)"
+    reading: "No new reading"
+    description: |-
+      Open office hours for final project work. Get hands-on help with experimental design, debugging, analysis, and interpretation. Lab members available for one-on-one and small-group guidance.
+
+  - week: 16
+    type: no-class
+    topic: "RRR Week: No Class"
