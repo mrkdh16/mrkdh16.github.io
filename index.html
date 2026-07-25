@@ -1,403 +1,108 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mark Rhee</title>
+  <meta name="author" content="Mark Rhee">
+  <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
+  <div class="page">
+    <div class="row">
 
-    <title>Mark Rhee</title>
+      <aside class="sidebar">
+        <img id="profile-pic" class="pfp" src="images/pfp2.jpg" alt="profile photo"
+             onclick="cyclePfpOnClick()" onmouseenter="startSlideshow()" onmouseleave="stopSlideshow()">
 
-    <meta name="author" content="Mark Rhee">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <p class="name"><span id="typing-text"></span><span id="cursor">|</span></p>
 
-  </head>
+        <div id="bio" class="bio">
+          <p>I'm an undergraduate at <a href="https://www.berkeley.edu/">UC Berkeley</a> double majoring in Applied Mathematics and Computer Science with a minor in Physics. My interests lie at the intersection of all of these fields. I'm particularly interested in foundational theories of intelligence.</p>
+        </div>
 
-  <body>
+        <nav class="quicklinks">
+          <a href="about.html">About</a>
+          <span class="dot">&middot;</span>
+          <a href="https://mrkdh16.github.io/markedown/">Digital garden</a>
+        </nav>
+      </aside>
 
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin:0 auto;"><tbody>
-      <tr>
-        <td style="padding:0px;">
-        <img 
-            id="banner-img" 
-            src="images/banner1.jpg" 
-            alt="Website Banner" 
-            class="banner-img"
-            onmouseenter="brightenBanner()" 
-            onmouseleave="darkenBanner()"
-            onclick="cycleBanner()"
-            style="cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease;"
-        >
-        
-        <script type="text/javascript">
-            var bannerImages = [
-            "images/banner1.jpg",
-            "images/banner2.jpg"
-            ];
-            
-            var bannerIndex = 0;
-            
-            function cycleBanner() {
-            var img = document.getElementById('banner-img');
-            bannerIndex++;
-            if (bannerIndex >= bannerImages.length) {
-                bannerIndex = 0;
-            }
-            img.src = bannerImages[bannerIndex];
-            }
-            
-            function brightenBanner() {
-            document.getElementById('banner-img').style.filter = 'brightness(1.05)';
-            }
+      <main class="projects">
+        <h2>Projects</h2>
 
-            function darkenBanner() {
-            document.getElementById('banner-img').style.filter = 'brightness(1)';
-            }
-            
-            bannerImages.forEach(function(src) {
-            new Image().src = src;
-            });
-        </script>
-        </td>
-      </tr>
-    </tbody></table>
+        <article class="project">
+          <div class="project-tag"><span class="dot paper"></span><span class="label">Paper</span></div>
+          <span class="project-title">Muon learns balanced solutions in matrix factorization without slow saddle-to-saddle dynamics</span>
+          <a class="project-link" href="https://arxiv.org/pdf/2606.30509">arxiv.org/pdf/2606.30509 &rarr;</a>
+          <div class="project-meta"><strong>Mark Rhee*</strong>, Jamie Simon, Dhruva Karkada &mdash; <span class="subtle-inline">Summer 2026</span></div>
+          <p class="project-desc">We study how the Muon optimizer's parameter trajectories differ from gradient descent in matrix factorization. Muon avoids slow saddle-to-saddle dynamics, remains stable beyond the critical learning rate, and conserves a distinct matrix quantity that drives weights toward balanced solutions. Completed during a summer research internship funded by <a href="https://imbue.com/">Imbue</a>.</p>
+        </article>
 
-    <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
+        <article class="project">
+          <div class="project-tag"><span class="dot teaching"></span><span class="label">Teaching</span></div>
+          <span class="project-title">Learning Mechanics DeCal</span>
+          <a class="project-link" href="https://mrkdh16.github.io/learning-mechanics-decal/">Course website &rarr;</a>
+          <div class="project-meta subtle">Fall 2026</div>
+          <p class="project-desc">I'm designing a course that gives an introduction to <i>Learning Mechanics</i>. The course is built around the perspective paper <a href="https://arxiv.org/pdf/2604.21691"><i>There Will Be a Scientific Theory of Deep Learning</i> (Simon et al., 2026)</a>.</p>
+        </article>
 
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr style="padding:0px">
-              <td style="padding:2.5%;width:60%;vertical-align:middle">
-                <p class="name" style="text-align: center;">
-                    <span id="typing-text"></span><span id="cursor">|</span>
-                    </p>
+        <article class="project">
+          <div class="project-tag"><span class="dot blog"></span><span class="label">Blog</span></div>
+          <span class="project-title">Deep linear networks are a surprisingly useful toy model of weight-space dynamics</span>
+          <a class="project-link" href="https://learningmechanics.pub/deep-linear-nets/">learningmechanics.pub &rarr;</a>
+          <div class="project-meta subtle">Spring 2026</div>
+          <p class="project-desc">What/why/how do deep neural networks learn? I co-authored this blog post for <a href="https://learningmechanics.pub">learningmechanics.pub</a> to explain how a toy model (deep linear networks) can elucidate and make concrete intuition about deep learning.</p>
+        </article>
+      </main>
 
-                    <script type="text/javascript">
-                        const text = "Hello there! I'm Mark.";
-                        let index = 0;
-                        let isPaused = false;
+    </div>
+  </div>
 
-                        function typeWriter() {
-                        if (index < text.length && !isPaused) {
-                            document.getElementById('typing-text').textContent += text.charAt(index);
-                            index++;
-                            
-                            if (index === 13) { 
-                            isPaused = true;
-                            setTimeout(() => {
-                                isPaused = false;
-                                typeWriter();
-                            }, 600);
-                            } else {
-                            setTimeout(typeWriter, 100);
-                            }
-                        } else if (index >= text.length) {
-                            document.getElementById('typing-text').innerHTML =
-                                "Hello there! I'm <a href='/quest-log.html' style='color:inherit;text-decoration:none;'>Mark</a>.";
-                            setTimeout(() => {
-                            document.getElementById('cursor').style.display = 'none';
-                            }, 2000);
-                        }
-                        }
-                    
-                    window.addEventListener('load', () => {
-                    setTimeout(typeWriter, 1500);
-                    });
-                    </script>
+  <script>
+    // Profile photo hover slideshow + click cycle
+    var pfpImages = ["images/pfp1.jpg","images/pfp2.jpg","images/pfp3.jpg","images/pfp4.jpg","images/pfp5.jpg","images/pfp6.jpg","images/pfp7.jpg"];
+    var pfpIndex = 1;
+    var slideshowTimer = null;
+    function cyclePfp() {
+      var img = document.getElementById('profile-pic');
+      pfpIndex = (pfpIndex + 1) % pfpImages.length;
+      img.src = pfpImages[pfpIndex];
+    }
+    function cyclePfpOnClick() { cyclePfp(); startSlideshow(); }
+    function startSlideshow() {
+      if (slideshowTimer) clearInterval(slideshowTimer);
+      slideshowTimer = setInterval(cyclePfp, 1500);
+    }
+    function stopSlideshow() {
+      if (slideshowTimer) { clearInterval(slideshowTimer); slideshowTimer = null; }
+    }
+    pfpImages.forEach(function(src) { new Image().src = src; });
 
-                    <style>
-                    #cursor {
-                        animation: blink 1s infinite;
-                        font-weight: 100;
-                    }
-                    
-                    @keyframes blink {
-                        0%, 50% { opacity: 1; }
-                        51%, 100% { opacity: 0; }
-                    }
-                    </style>
-
-                <p>
-                  I'm an undergraduate at <a href="https://www.berkeley.edu/">UC Berkeley</a> double majoring in Applied Mathematics and Computer Science with a minor in Physics. My interests lie at the intersection of all of these fields. I'm particularly
-                    interested in foundational theories of artificial intelligence. Currently, I'm working at a small lab in the <a href="https://redwood.berkeley.edu/">Redwood Center for Theoretical Neuroscience</a>, where I work on <a href="https://arxiv.org/pdf/2604.21691">Learning Mechanics</a>: 
-                    the emerging discipline that treats deep learning the way physics treats the natural world; seeking compact mathematical principles, tight connections between theory and experiment, and simple, intuitive explanations for complex phenomena.
-                </p>
-                <p>
-                I collect my thoughts in a <a href="https://mrkdh16.github.io/markedown/">digital garden</a>—some polished essays, others messy learning notes. Feel free to explore.
-                </p>
-
-              </td>
-                <td style="padding:2.5%;width:37%;max-width:37%">
-                <img 
-                    id="profile-pic" 
-                    onclick="cyclePfpOnClick()"
-                    onmouseenter="startSlideshow()" 
-                    onmouseleave="stopSlideshow()"
-                    style="cursor:pointer; width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" 
-                    alt="profile photo" 
-                    src="images/pfp2.jpg" 
-                    class="hoverZoomLink"
-                >
-                <script type="text/javascript">
-                    var pfpImages = [
-                    "images/pfp1.jpg",
-                    "images/pfp2.jpg",
-                    "images/pfp3.jpg",
-                    "images/pfp4.jpg",
-                    "images/pfp5.jpg",
-                    "images/pfp6.jpg",
-                    "images/pfp7.jpg"
-                    ];
-                    
-                    var pfpIndex = 1;
-                    var slideshowTimer = null;
-                    
-                    function cyclePfp() {
-                    var img = document.getElementById('profile-pic');
-                    pfpIndex++;
-                    if (pfpIndex >= pfpImages.length) {
-                        pfpIndex = 0;
-                    }
-                    img.src = pfpImages[pfpIndex];
-                    }
-
-                    function cyclePfpOnClick() {
-                    var img = document.getElementById('profile-pic');
-                    pfpIndex++;
-                    if (pfpIndex >= pfpImages.length) {
-                        pfpIndex = 0;
-                    }
-                    img.src = pfpImages[pfpIndex];
-                    startSlideshow();
-                    }
-                    
-                    function startSlideshow() {
-                    if (slideshowTimer) {
-                        clearInterval(slideshowTimer);
-                    }
-                    slideshowTimer = setInterval(cyclePfp, 1500);
-                    }
-                    
-                    function stopSlideshow() {
-                    if (slideshowTimer) {
-                        clearInterval(slideshowTimer);
-                        slideshowTimer = null;
-                    }
-                    }
-                    
-                    pfpImages.forEach(function(src) {
-                    new Image().src = src;
-                    });
-
-                </script>
-                <style>
-                #profile-pic {
-                    transition: transform 0.3s ease, box-shadow 0.3s ease;
-                }
-                #profile-pic:hover {
-                    transform: scale(1.03);
-                    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-                }
-                </style>
-                </td>
-          </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            
-            <!-- <tr>
-              <td style="padding:16px;width:100%;vertical-align:middle">
-                <p>
-                    At Berkeley, I've taken a wide range of classes&mdash;mostly whatever I found interesting. You can find a list of all the (cool) classes I've taken so far and my thoughts on them <a href="courses.html">here</a>. I store notes and random musings <a href="https://mrkdh16.github.io/markedown/">here</a>. Check it out if you want a peek into my brain.
-                </p>
-              </td>
-            </tr> -->
-
-            <tr>
-            <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Projects</h2>
-                <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-                 
-                    <tr onmouseout="lmdecal_stop()" onmouseover="lmdecal_start()">
-                            <td style="padding:16px;width:20%;vertical-align:middle">
-                            <div class="one">
-                                <div class="two" id='lmdecal_second_image'>
-                                <img src='images/lmdecal1.png' width=100%>
-                                </div>
-                                <img src='images/lmdecal1.png' width=100%>
-                            </div>
-                            <script type="text/javascript">
-                                function lmdecal_start() {
-                                document.getElementById('lmdecal_second_image').style.opacity = "1";
-                                }
-
-                                function lmdecal_stop() {
-                                document.getElementById('lmdecal_second_image').style.opacity = "0";
-                                }
-                                lmdecal_stop()
-                            </script>
-                            </td>
-                            <td style="padding:8px;width:80%;vertical-align:middle">
-                            <a href="https://mrkdh16.github.io/learning-mechanics-decal/" class="hoverZoomLink">
-                                <span class="papertitle">Learning Mechanics DeCal</span>
-                            </a>
-                            <br>
-                            Fall 2026
-                            <br>
-                            <p>
-                            I'm designing a course that gives an introduction to <i>Learning Mechanics</i>. The course is built around the perspective paper <a href="https://arxiv.org/pdf/2604.21691"><i>There Will Be a Scientific Theory of Deep Learning</i> (Simon et al., 2026)</a>
-                        </p>
-                            </td>
-                        </tr>
-                 
-                    <tr onmouseout="dln_stop()" onmouseover="dln_start()">
-                            <td style="padding:16px;width:20%;vertical-align:middle">
-                            <div class="one">
-                                <video src='images/dln1.mp4' width=100% autoplay loop muted playsinline></video>
-                            </div>
-                            </td>
-                            <td style="padding:8px;width:80%;vertical-align:middle">
-                            <a href="https://learningmechanics.pub/deep-linear-nets/" class="hoverZoomLink">
-                                <span class="papertitle">Deep linear networks are a surprisingly useful toy model of weight-space dynamics</span>
-                            </a>
-                            <br>
-                            April 2026
-                            <br>
-                            <p>
-                            What/why/how do deep neural networks learn? I co-authored this blog post for <a href="url">learningmechanics.pub</a> to explain how a toy model (deep linear networks) can elucidate and make concrete intuition about deep learning. 
-                        </p>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </td>
-            </tr>
-            
-            
-
-            <!-- <tr>
-              <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Projects</h2>
-                    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-                        <tr onmouseout="optimizer_stop()" onmouseover="optimizer_start()">
-                            <td style="padding:16px;width:20%;vertical-align:middle">
-                            <div class="one">
-                                <div class="two" id='optimizer_second_image'>
-                                <img src='images/optimizer2.jpg' width=100%></div>
-                                <img src='images/optimizer1.jpg' width=100%>
-                            </div>
-                            <script type="text/javascript">
-                                function optimizer_start() {
-                                document.getElementById('optimizer_second_image').style.opacity = "1";
-                                }
-
-                                function optimizer_stop() {
-                                document.getElementById('optimizer_second_image').style.opacity = "0";
-                                }
-                                optimizer_stop()
-                            </script>
-                            </td>
-                            <td style="padding:8px;width:80%;vertical-align:middle">
-                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration" class="hoverZoomLink">
-                                <span class="papertitle">Comparing Learning Dynamics of Gradient Descent and Muon optimizer</span>
-                            </a>
-                            <br>
-                            August 2025
-                            <br>
-                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration">Github Repo</a>
-                            <p>
-                            Under construction.                            
-                        </p>
-                            </td>
-                        </tr>
-                        
-                        <tr onmouseout="lottery_stop()" onmouseover="lottery_start()">
-                            <td style="padding:16px;width:20%;vertical-align:middle">
-                            <div class="one">
-                                <div class="two" id='lottery_second_image'>
-                                <img src='images/lottery2.jpg' width=100%></div>
-                                <img src='images/lottery.jpg' width=100%>
-                            </div>
-                            <script type="text/javascript">
-                                function lottery_start() {
-                                document.getElementById('lottery_second_image').style.opacity = "1";
-                                }
-
-                                function lottery_stop() {
-                                document.getElementById('lottery_second_image').style.opacity = "0";
-                                }
-                                lottery_stop()
-                            </script>
-                            </td>
-                            <td style="padding:8px;width:80%;vertical-align:middle">
-                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration" class="hoverZoomLink">
-                                <span class="papertitle">Generalization Capabilities of Neural Network Substructure Ensembles</span>
-                            </a>
-                            <br>
-                            August 2025
-                            <br>
-                            <a href="https://github.com/mrkdh16/lottery-ticket-exploration">Github Repo</a>
-                            <p>
-                            Showed that ensembles of sparse subnetworks can vastly outperform dense networks while improving out-of-distribution generalization. This work highlights how sparsity and functional redundancy can be leveraged for more robust learning.                            </p>
-                            </td>
-                        </tr>
-                        
-
-                        <tr onmouseout="nba_shot_project_stop()" onmouseover="nba_shot_project_start()">
-                            <td style="padding:16px;width:20%;vertical-align:middle">
-                            <div class="one">
-                                <div class="two" id='nba_shot_second_image'>
-                                <img src='images/nba-shot-second.jpg' width=100%></div>
-                                <img src='images/nba-shot-first.png' width=100%>
-                            </div>
-                            <script type="text/javascript">
-                                function nba_shot_project_start() {
-                                document.getElementById('nba_shot_second_image').style.opacity = "1";
-                                }
-
-                                function nba_shot_project_stop() {
-                                document.getElementById('nba_shot_second_image').style.opacity = "0";
-                                }
-                                nba_shot_project_stop()
-                            </script>
-                            </td>
-                            <td style="padding:8px;width:80%;vertical-align:middle">
-                            <a href="https://github.com/mrkdh16/nba-shot-prediction" class="hoverZoomLink">
-                                <span class="papertitle">NBA Shot Prediction</span>
-                            </a>
-                            <br>
-                            December 2024
-                            <br>
-                            <a href="https://github.com/mrkdh16/nba-shot-prediction">Github Repo</a>
-                            <p>
-                            Predictive modeling of NBA shot success using features like shot distance and defender proximity. Trained logistic regression and neural networks. Features analysis by training models with individual variables.
-                            </p>
-                            </td>
-                        </tr>
-                    
-                    </table>
-              </td>
-            </tr> -->
-            
-          <!-- </tbody></table>
-            <tr>
-              <td style="padding:0px">
-                <br>
-                <p style="text-align:center;font-size:small;">
-                  Most of the source code for this website was borrowed from <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website</a>. 
-                </p>
-              </td>
-            </tr>
-          </tbody></table> -->
-
-        </td>
-      </tr>
-    </tbody></table>
-  </body>
+    // Typing intro
+    var text = "Hello there! I'm Mark.";
+    var index = 0, isPaused = false;
+    function typeWriter() {
+      if (index < text.length && !isPaused) {
+        document.getElementById('typing-text').textContent += text.charAt(index);
+        index++;
+        if (index === 13) {
+          isPaused = true;
+          setTimeout(function() { isPaused = false; typeWriter(); }, 500);
+        } else {
+          setTimeout(typeWriter, 110);
+        }
+      } else if (index >= text.length) {
+        setTimeout(function() {
+          document.getElementById('cursor').style.display = 'none';
+        }, 1600);
+      }
+    }
+    window.addEventListener('load', function() {
+      setTimeout(typeWriter, 700);
+    });
+  </script>
+</body>
 </html>
