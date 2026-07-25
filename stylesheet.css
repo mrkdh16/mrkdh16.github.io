@@ -117,6 +117,17 @@ a:hover, a:focus {
   color: var(--dot-sep);
 }
 
+.sociallinks {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+}
+.sociallinks a {
+  color: var(--text-subtle);
+}
+
 .projects {
   flex: 1;
   min-width: 0;
