@@ -222,6 +222,204 @@ a:hover, a:focus {
   .projects { overflow: visible; height: auto; }
 }
 
+/* Floating wall shelf (right gutter, wide screens only) */
+.wall-shelf {
+  display: none;
+  position: fixed;
+  top: 110px;
+  right: max(12px, calc((100vw - 1100px) / 4 - 80px));
+  width: 160px;
+  pointer-events: none;
+}
+@media (min-width: 1400px) {
+  .wall-shelf { display: block; }
+}
+.wall-shelf svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.wall-shelf .book {
+  pointer-events: auto;
+  cursor: default;
+  outline: none;
+  transition: transform 0.25s ease;
+}
+.wall-shelf .book:hover,
+.wall-shelf .book:focus {
+  transform: translateY(-3px);
+}
+.wall-shelf .vine {
+  animation: vine-sway 7s ease-in-out infinite alternate;
+}
+@keyframes vine-sway {
+  from { transform: rotate(-1.2deg); }
+  to   { transform: rotate(1.2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wall-shelf .vine { animation: none; }
+}
+.shelf-caption {
+  position: absolute;
+  top: 124px;
+  right: 0;
+  width: 92px;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.shelf-caption.visible {
+  opacity: 1;
+  transform: none;
+}
+.shelf-caption .title {
+  display: block;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+.shelf-caption .author {
+  display: block;
+  margin-top: 2px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+
+/* Reading nook in the bottom-right corner (wide, tall screens only) */
+.reading-nook {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  pointer-events: none;
+}
+@media (min-width: 1400px) and (min-height: 700px) {
+  .reading-nook { display: block; }
+}
+.reading-nook svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.nook-sprite {
+  pointer-events: auto;
+  transform-origin: 80px 190px;
+}
+.recline {
+  transform-origin: 80px 192px;
+  transform: rotate(15deg);
+  transition: transform 0.15s ease;
+}
+.nook-sprite.falling .recline { transform: none; }
+.nook-sprite .fall-only { display: none; }
+.nook-sprite.falling .fall-only { display: inline; }
+.nook-sprite.falling .read-only { display: none; }
+.nook-sprite.falling {
+  animation: freefall 0.3s ease-in-out infinite alternate;
+}
+@keyframes freefall {
+  from { transform: translateY(-12px) rotate(-4deg); }
+  to   { transform: translateY(-16px) rotate(4deg); }
+}
+.nook-sprite.landing {
+  animation: plop 0.3s ease-out;
+}
+@keyframes plop {
+  0%   { transform: translateY(-12px); }
+  45%  { transform: translateY(0) scale(1.1, 0.88); }
+  70%  { transform: scale(0.97, 1.04); }
+  100% { transform: none; }
+}
+.sprite-breathe {
+  transform-origin: 80px 190px;
+  animation: breathe 3.6s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50%      { transform: scale(1.01, 1.025); }
+}
+.sprite-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 5s infinite;
+}
+@keyframes blink {
+  0%, 94%, 100% { transform: scaleY(1); }
+  96%           { transform: scaleY(0.1); }
+}
+.speed-lines line {
+  animation: speed-line 0.35s linear infinite;
+}
+.speed-lines line:nth-child(2) { animation-delay: -0.1s; }
+.speed-lines line:nth-child(3) { animation-delay: -0.2s; }
+.speed-lines line:nth-child(4) { animation-delay: -0.28s; }
+@keyframes speed-line {
+  from { transform: translateY(18px); opacity: 0; }
+  40%  { opacity: 1; }
+  to   { transform: translateY(-22px); opacity: 0; }
+}
+.fall-book {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: book-flap 0.25s ease-in-out infinite alternate;
+}
+@keyframes book-flap {
+  from { transform: rotate(-14deg) scaleY(0.85); }
+  to   { transform: rotate(14deg) scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nook-sprite.falling, .nook-sprite.landing, .sprite-breathe,
+  .sprite-eyes, .speed-lines line, .fall-book { animation: none; }
+}
+
+/* String lights in the left gutter (wide screens only) */
+.string-lights {
+  display: none;
+  position: fixed;
+  top: 0;
+  /* inset from the screen edge, and stop well short of the profile photo */
+  --lights-inset: max(28px, calc((100vw - 1100px) * 0.075));
+  left: var(--lights-inset);
+  width: calc((100vw - 1100px) / 2 - 24px - var(--lights-inset));
+  height: 100vh;
+  pointer-events: none;
+}
+@media (min-width: 1300px) {
+  .string-lights { display: block; }
+}
+.string-lights svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.string-lights .strand {
+  animation: strand-sway 9s ease-in-out infinite alternate;
+}
+@keyframes strand-sway {
+  from { transform: rotate(-1deg); }
+  to   { transform: rotate(1deg); }
+}
+.string-lights .bulb-glow {
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+@keyframes twinkle {
+  from { opacity: 0.55; }
+  to   { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .string-lights .strand,
+  .string-lights .bulb-glow { animation: none; }
+}
+
 /* About page */
 .about-wrap {
   max-width: 640px;
