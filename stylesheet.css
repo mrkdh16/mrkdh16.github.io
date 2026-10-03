@@ -466,14 +466,81 @@ a:hover, a:focus {
   margin-bottom: 60px;
 }
 
-.about-photo {
-  width: 85%;
-  margin: 40px auto;
-}
-.about-photo img {
+/* The existing shelf and reader sit in the page, alongside a photo poster. */
+.about-scene {
+  position: relative;
   width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 12px;
+  aspect-ratio: 1.2;
+  margin-top: 48px;
+}
+.about-scene .wall-shelf {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 3%;
+  right: auto;
+  width: 39%;
+}
+.about-scene .reading-nook {
+  display: block;
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  width: 40%;
+}
+.about-scene .recline {
+  transform: none;
+}
+.about-scene .shelf-caption {
+  right: 0;
+  width: 90%;
+  bottom: calc(100% - 40px);
+}
+.about-poster {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 38%;
+  margin: 0;
+  padding: clamp(6px, 1.8vw, 12px);
+  border: clamp(3px, 0.8vw, 5px) solid #956e47;
+  background: #faf3dd;
+  box-shadow: inset 0 0 0 1px #dcc6a1, 3px 5px 9px rgba(80, 55, 25, 0.16);
+}
+.about-poster img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.coffee-table {
+  position: absolute;
+  left: 22%;
+  bottom: 0;
+  width: 30%;
+}
+.coffee-table svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.steam path {
+  opacity: 0;
+  animation: steam-rise 4.5s ease-in-out infinite;
+}
+.steam path:nth-child(2) { animation-delay: -1.5s; }
+.steam path:nth-child(3) { animation-delay: -3s; }
+@keyframes steam-rise {
+  0%   { opacity: 0;   transform: translateY(4px) scaleY(0.85); }
+  30%  { opacity: 0.9; }
+  100% { opacity: 0;   transform: translateY(-10px) scaleY(1.1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .steam path { animation: none; opacity: 0.6; }
+}
+@media (max-width: 480px) {
+  .about-scene { aspect-ratio: 1.12; }
+  .about-scene .reading-nook { width: 46%; }
+  .about-scene .shelf-caption .title { font-size: 11px; }
+  .about-scene .shelf-caption .author { font-size: 8px; }
 }
