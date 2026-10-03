@@ -470,23 +470,23 @@ a:hover, a:focus {
 .about-scene {
   position: relative;
   width: 100%;
-  aspect-ratio: 1.2;
-  margin-top: 48px;
+  aspect-ratio: 1.6;
+  margin-top: 8px;
 }
 .about-scene .wall-shelf {
   display: block;
   position: absolute;
-  top: 0;
-  left: 3%;
+  top: -7%;  /* the shelf graphic has empty headroom above the books */
+  left: 7%;
   right: auto;
-  width: 39%;
+  width: 30%;
 }
 .about-scene .reading-nook {
   display: block;
   position: absolute;
-  right: 5%;
+  right: 6%;
   bottom: 0;
-  width: 40%;
+  width: 41%;
 }
 .about-scene .recline {
   transform: none;
@@ -494,29 +494,26 @@ a:hover, a:focus {
 .about-scene .shelf-caption {
   right: 0;
   width: 90%;
-  bottom: calc(100% - 40px);
+  bottom: 81%;  /* just above the tallest book at any width */
 }
-.about-poster {
+.about-window {
   position: absolute;
-  top: 5%;
-  right: 5%;
-  width: 38%;
+  top: 7%;
+  right: 6%;
+  width: 42%;
   margin: 0;
-  padding: clamp(6px, 1.8vw, 12px);
-  border: clamp(3px, 0.8vw, 5px) solid #956e47;
-  background: #faf3dd;
-  box-shadow: inset 0 0 0 1px #dcc6a1, 3px 5px 9px rgba(80, 55, 25, 0.16);
 }
-.about-poster img {
+.about-window svg {
+  display: block;
   width: 100%;
   height: auto;
-  display: block;
+  overflow: visible;
 }
 .coffee-table {
   position: absolute;
-  left: 22%;
+  left: 24%;
   bottom: 0;
-  width: 30%;
+  width: 28%;
 }
 .coffee-table svg {
   display: block;
@@ -535,11 +532,59 @@ a:hover, a:focus {
   30%  { opacity: 0.9; }
   100% { opacity: 0;   transform: translateY(-10px) scaleY(1.1); }
 }
+.light-switch {
+  position: absolute;
+  top: 50%;  /* about sill height, like a real switch */
+  left: 43.5%;
+  width: 3%;
+  min-width: 14px;
+  height: auto;
+  overflow: visible;
+  cursor: pointer;
+}
+.switch-lever {
+  transform-box: view-box;
+  transform-origin: 14px 21.5px;
+  transition: transform 0.15s ease;
+}
+.light-switch.flipped .switch-lever {
+  transform: scaleY(-1);
+}
+.light-switch:focus { outline: none; }
+.light-switch:focus-visible {
+  outline: 1.5px solid #4682A9;
+  outline-offset: 2px;
+}
+.table-lamp {
+  cursor: pointer;
+}
+.table-lamp .lamp-glow,
+.table-lamp .lamp-lit {
+  transition: opacity 0.3s ease;
+}
+.table-lamp.lamp-off .lamp-glow { opacity: 0; }
+.table-lamp.lamp-off .lamp-lit { opacity: 0.15; }
+.window-sash {
+  cursor: grab;
+  touch-action: none;
+}
+.window-sash.dragging {
+  cursor: grabbing;
+}
+.table-lamp:focus,
+.window-sash:focus {
+  outline: none;
+}
+.table-lamp:focus-visible,
+.window-sash:focus-visible {
+  outline: 1.5px solid #4682A9;
+  outline-offset: 2px;
+}
 @media (prefers-reduced-motion: reduce) {
   .steam path { animation: none; opacity: 0.6; }
 }
 @media (max-width: 480px) {
-  .about-scene { aspect-ratio: 1.12; }
+  .about-scene { aspect-ratio: 1.48; }
   .about-scene .reading-nook { width: 46%; }
   .about-scene .shelf-caption .title { font-size: 11px; }
   .about-scene .shelf-caption .author { font-size: 8px; }

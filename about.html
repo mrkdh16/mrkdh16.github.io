@@ -32,7 +32,7 @@
 <p>The empirical success of deep learning is undeniable. But like many engineering successes of the past, our theoretical understanding lags behind. A genuine scientific theory of deep learning would be paradigm-altering. It would drive significant engineering advances and provide us with a window into the very nature of intelligence. Such a theory would be layered, the way the natural sciences are: psychology, biology, and physics each building a map at a different resolution. I’m most interested in the bottom layer resembling a first-principles physics of learning, an emerging discipline now called <a href="https://arxiv.org/pdf/2604.21691">learning mechanics</a> which treats deep learning the way physics treats the natural world; seeking compact mathematical principles, tight connections between theory and experiment, and simple, intuitive explanations for complex phenomena.</p>
 
 <p>I’m currently working on learning mechanics at <a href="https://flab.world/">Feature Lab (FLAB)</a>, housed within the <a href="https://redwood.berkeley.edu/">Redwood Center for Theoretical Neuroscience</a>.</p>
-    <div class="about-scene" aria-label="A bookshelf, coffee table, Mount Tamalpais poster, and a little reader on a bean bag">
+    <div class="about-scene" aria-label="A bookshelf, coffee table, double-hung window, a light switch, and a little reader on a bean bag">
       <!-- The home page shelf, placed beneath the about text. -->
       <div class="wall-shelf">
         <svg id="shelf-svg" viewBox="0 0 180 360" role="img" aria-label="A floating shelf with a pothos plant and the books I'm currently reading">
@@ -71,9 +71,130 @@
         <div class="shelf-caption" id="shelf-caption" aria-live="polite"></div>
       </div>
 
-      <figure class="about-poster">
-        <img src="images/tam.jpg" alt="Hikers on the grassy slopes of Mount Tamalpais" width="3000" height="4000">
+      <!-- A wooden double-hung window with raised blinds; the view is picked at random from data-views.
+           The upper sash is fixed; the lower sash slides in front of it and is raised partway. -->
+      <figure class="about-window">
+        <svg viewBox="-8 -5 274 210" role="img" aria-label="A double-hung window, its lower sash raised partway, looking out on one of a few places I've been">
+          <defs>
+            <!-- glass opening is 4:3, the same shape as the photo -->
+            <clipPath id="window-glass"><rect x="9" y="9" width="240" height="180"/></clipPath>
+            <linearGradient id="glass-glare" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0.3" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="0.38" stop-color="#fff" stop-opacity="0.14"/>
+              <stop offset="0.46" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="0.6" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="0.64" stop-color="#fff" stop-opacity="0.09"/>
+              <stop offset="0.7" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="glass-glare-2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+              <stop offset="0.56" stop-color="#fff" stop-opacity="0.13"/>
+              <stop offset="0.63" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="brass" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f0d38a"/><stop offset="1" stop-color="#b8903f"/>
+            </linearGradient>
+            <filter id="window-blur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.5"/></filter>
+            <filter id="blind-shadow" x="-5%" y="-50%" width="110%" height="300%"><feGaussianBlur stdDeviation="1.2"/></filter>
+          </defs>
+          <rect x="2" y="0" width="258" height="203" fill="rgba(80,55,25,0.14)" filter="url(#window-blur)"/>
+
+          <!-- the view through the whole opening -->
+          <image id="window-view" data-views="images/window1.jpg images/window2.jpg images/window5.jpg images/window6.jpg" x="9" y="9" width="240" height="180" preserveAspectRatio="xMidYMid slice" clip-path="url(#window-glass)"/>
+          <!-- outside sill, seen through the open gap at the bottom -->
+          <rect x="9" y="185.5" width="240" height="3.5" fill="#a87d52"/>
+          <rect x="9" y="185.5" width="240" height="0.7" fill="#c49a6c"/>
+
+          <!-- fixed upper sash -->
+          <g>
+            <rect x="17" y="14" width="224" height="84" fill="rgba(200,220,235,0.08)"/>
+            <rect x="17" y="14" width="224" height="84" fill="url(#glass-glare)"/>
+            <path d="M12,9 H246 V103 H12 Z M17,14 V98 H241 V14 Z" fill-rule="evenodd" fill="#c9a06f"/>
+            <path d="M14,11.5 C72,11.1 176,12.0 244,11.5" stroke="rgba(110,70,35,0.15)" stroke-width="0.4" fill="none"/>
+            <rect x="12" y="9" width="234" height="0.8" fill="#e2c7a2" opacity="0.8"/>
+            <path d="M16,13 H242 L241,14 H17 V98 L16,99 Z" fill="rgba(90,55,25,0.28)"/>
+            <path d="M242,13 V99 H16 L17,98 H241 V14 Z" fill="#e2c7a2" opacity="0.75"/>
+            <rect x="17" y="14" width="224" height="2" fill="rgba(40,25,10,0.14)"/>
+            <rect x="12" y="9" width="234" height="94" fill="none" stroke="rgba(110,70,35,0.4)" stroke-width="0.5"/>
+          </g>
+
+          <!-- moving lower sash, in front, raised most of the way (4/5 of its travel); drag it up and down -->
+          <g class="window-sash" id="window-sash" tabindex="0" role="slider" aria-label="Lower window sash" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
+            <rect x="12" y="120" width="234" height="3" fill="rgba(40,25,10,0.22)" filter="url(#blind-shadow)"/>
+            <rect x="17" y="31" width="224" height="82" fill="rgba(200,220,235,0.08)"/>
+            <rect x="17" y="31" width="224" height="82" fill="url(#glass-glare-2)"/>
+            <path d="M12 26H246V120H12ZM17 31V113H241V31Z" fill-rule="evenodd" fill="#cda477"/>
+            <path d="M14 28.5C72 28.1 176 29 244 28.5" stroke="rgba(110,70,35,0.15)" stroke-width="0.4" fill="none"/>
+            <rect x="12" y="26" width="234" height="0.8" fill="#e2c7a2" opacity="0.8"/>
+            <path d="M16 30H242L241 31H17V113L16 114Z" fill="rgba(90,55,25,0.28)"/>
+            <path d="M242 30V114H16L17 113H241V31Z" fill="#e2c7a2" opacity="0.75"/>
+            <rect x="17" y="31" width="224" height="2" fill="rgba(40,25,10,0.14)"/>
+            <rect x="12" y="26" width="234" height="94" fill="none" stroke="rgba(110,70,35,0.4)" stroke-width="0.5"/>
+            <path d="M74 114H84V116C84 117.6 74 117.6 74 116ZM174 114H184V116C184 117.6 174 117.6 174 116Z" fill="url(#brass)" stroke="rgba(110,80,30,0.45)" stroke-width="0.3"/>
+            <rect x="124" y="26.6" width="10" height="3.8" rx="0.9" fill="url(#brass)" stroke="rgba(110,80,30,0.5)" stroke-width="0.3"/>
+            <circle cx="129" cy="28.5" r="1" fill="#a8843f"/>
+          </g>
+          <!-- the lock's keeper on the fixed sash, seen through the moving glass -->
+          <rect x="124.5" y="98.6" width="9" height="2.2" rx="0.5" fill="url(#brass)" opacity="0.75"/>
+
+          <!-- casing, in the shelf's wood, with mitred top corners and a head cap -->
+          <path d="M0,0 H258 V189 H0 Z M9,9 V189 H249 V9 Z" fill-rule="evenodd" fill="#c49a6c"/>
+          <path d="M0,0 L9,9 M258,0 L249,9" stroke="rgba(110,70,35,0.3)" stroke-width="0.5"/>
+          <path d="M3,60 C2.5,100 4,140 3,180 M255,40 C255.5,90 254,130 255,170" stroke="rgba(110,70,35,0.16)" stroke-width="0.5" fill="none"/>
+          <rect x="0.3" y="0.3" width="257.4" height="189" fill="none" stroke="rgba(110,70,35,0.35)" stroke-width="0.6"/>
+          <circle cx="4.5" cy="4.5" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="70" cy="4.5" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="190" cy="4.5" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="253.5" cy="4.5" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="4.5" cy="70" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="4.5" cy="150" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="253.5" cy="70" r="0.45" fill="rgba(110,70,35,0.35)"/><circle cx="253.5" cy="150" r="0.45" fill="rgba(110,70,35,0.35)"/>
+          <rect x="-3" y="-3" width="264" height="2" rx="0.8" fill="#e2c7a2"/>
+          <rect x="-2" y="-1" width="262" height="1.6" fill="#b48a5e"/>
+          <!-- inner jambs -->
+          <path d="M9,9 H249 L246,12 H12 Z" fill="#a87d52"/>
+          <path d="M9,9 L12,12 V189 H9 Z" fill="#b48a5e"/>
+          <path d="M249,9 L246,12 V189 H249 Z" fill="#bb9064"/>
+          <rect x="9" y="9" width="240" height="180" fill="none" stroke="rgba(90,55,25,0.45)" stroke-width="0.8"/>
+
+          <!-- raised venetian blinds, mounted inside the head jamb -->
+          <g>
+            <rect x="10" y="22" width="238" height="3" fill="rgba(40,25,10,0.25)" filter="url(#blind-shadow)"/>
+            <rect x="9" y="9" width="240" height="5" fill="#f6f3ec"/>
+            <rect x="9" y="9" width="240" height="0.8" fill="#fff" opacity="0.7"/>
+            <rect x="9" y="13.3" width="240" height="0.7" fill="rgba(90,70,45,0.22)"/>
+            <path d="M10,14.0 H248 V15.7 C170,16.3 90,16.3 10,15.7 Z" fill="#f1ece2"/><path d="M10,16.2 H248 V17.9 C170,18.5 90,18.5 10,17.9 Z" fill="#e9e3d7"/><path d="M10,18.4 H248 V20.1 C170,20.7 90,20.7 10,20.1 Z" fill="#eee8dd"/>
+            <rect x="10" y="20.6" width="238" height="2.2" rx="0.8" fill="#f3efe6" stroke="rgba(110,90,60,0.35)" stroke-width="0.4"/>
+            <path d="M70,14 V20.6 M74,14 V20.6 M127,14 V20.6 M131,14 V20.6 M184,14 V20.6 M188,14 V20.6" stroke="rgba(150,135,110,0.75)" stroke-width="0.4" fill="none"/>
+            <line x1="241" y1="13" x2="241" y2="132" stroke="rgba(140,125,100,0.85)" stroke-width="0.5"/>
+            <path d="M239.9,132 H242.1 L242.6,137.5 H239.4 Z" fill="#ece6da" stroke="rgba(110,90,60,0.4)" stroke-width="0.3"/>
+            <rect x="16" y="14" width="1.2" height="44" rx="0.6" fill="rgba(255,255,255,0.45)" stroke="rgba(150,140,120,0.4)" stroke-width="0.25"/>
+          </g>
+
+          <!-- sill with horns, and the apron below, built like the shelf plank -->
+          <rect x="-6" y="189" width="270" height="2.5" rx="0.8" fill="#e2c7a2"/>
+          <rect x="-6" y="191.5" width="270" height="4.5" rx="0.8" fill="#c49a6c"/>
+          <rect x="-6" y="189" width="270" height="7" rx="0.8" fill="none" stroke="rgba(110,70,35,0.3)" stroke-width="0.4"/>
+          <rect x="3" y="196" width="252" height="5" fill="#b48a5e"/>
+          <rect x="3" y="196" width="252" height="1.4" fill="rgba(60,40,20,0.18)"/>
+        </svg>
       </figure>
+      <script>
+        (function() {
+          var img = document.getElementById('window-view');
+          var views = img.getAttribute('data-views').split(' ');
+          img.setAttribute('href', views[Math.floor(Math.random() * views.length)]);
+        })();
+      </script>
+
+      <!-- Wall light switch: each flip changes the view out the window -->
+      <svg class="light-switch" id="light-switch" viewBox="0 0 30 46" tabindex="0" role="button" aria-label="Light switch: change the view out the window">
+        <rect x="2" y="3" width="26" height="41" rx="3" fill="rgba(80,55,25,0.18)" filter="url(#window-blur)"/>
+        <rect x="1" y="1" width="26" height="41" rx="3" fill="#f6f1e6" stroke="rgba(110,90,60,0.4)" stroke-width="0.7"/>
+        <rect x="2.2" y="2.2" width="23.6" height="38.6" rx="2.2" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="0.6"/>
+        <circle cx="14" cy="6.5" r="1.4" fill="#e3dccd" stroke="rgba(110,90,60,0.45)" stroke-width="0.4"/>
+        <circle cx="14" cy="36.5" r="1.4" fill="#e3dccd" stroke="rgba(110,90,60,0.45)" stroke-width="0.4"/>
+        <path d="M12.9,6.5 H15.1 M12.9,36.5 H15.1" stroke="rgba(110,90,60,0.6)" stroke-width="0.4"/>
+        <rect x="10.5" y="14" width="7" height="15" rx="1.2" fill="#e9e2d4" stroke="rgba(110,90,60,0.4)" stroke-width="0.5"/>
+        <g class="switch-lever">
+          <path d="M11.5,21.5 L12.3,12.5 C12.4,11.6 15.6,11.6 15.7,12.5 L16.5,21.5 Z" fill="#fbf8f1" stroke="rgba(110,90,60,0.45)" stroke-width="0.5"/>
+          <rect x="12.6" y="12.6" width="1" height="7.5" rx="0.5" fill="#fff" opacity="0.8"/>
+        </g>
+      </svg>
 
       <!-- A low coffee table under the shelf, with a steaming mug. -->
       <div class="coffee-table">
@@ -105,22 +226,41 @@
             <ellipse cx="124" cy="50" rx="14" ry="2.6" fill="#749BC2"/>
             <ellipse cx="124" cy="50.5" rx="12" ry="1.9" fill="#5a3a22"/>
           </g>
-          <!-- table lamp -->
-          <g class="table-lamp" transform="translate(60 72.5) scale(1.35) translate(-152 -72.5)">
+          <!-- articulated desk lamp (click to toggle) -->
+          <g class="table-lamp" id="table-lamp" tabindex="0" role="button" aria-pressed="true" aria-label="Desk lamp" transform="translate(56 72.5) scale(1.9) translate(-152 -72.5)">
             <defs>
-              <radialGradient id="lamp-glow">
-                <stop offset="0" stop-color="#ffe6a8" stop-opacity="0.55"/>
-                <stop offset="1" stop-color="#ffe6a8" stop-opacity="0"/>
-              </radialGradient>
+              <linearGradient id="lamp-metal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f7f5f0"/><stop offset="1" stop-color="#d6d1c6"/>
+              </linearGradient>
             </defs>
-            <ellipse cx="152" cy="46" rx="34" ry="26" fill="url(#lamp-glow)"/>
-            <ellipse cx="152" cy="72.5" rx="15" ry="2" fill="rgba(70,45,20,0.18)"/>
-            <path d="M143,72 C143,66 147,64 152,64 C157,64 161,66 161,72 Z" fill="#e9dcc0"/>
-            <rect x="151" y="36" width="2" height="29" fill="#8a6a48"/>
-            <path d="M141,40 L163,40 L158,20 L146,20 Z" fill="#f2e4c4"/>
-            <path d="M141,40 L163,40 L161.5,35 L142.5,35 Z" fill="rgba(255,230,168,0.5)"/>
-            <path d="M158,20 L163,40 L159,40 L155,20 Z" fill="rgba(120,90,50,0.1)"/>
-            <ellipse cx="152" cy="40" rx="11" ry="1.4" fill="#ffe6a8"/>
+            <!-- invisible hit area, so clicks between the thin arms still count -->
+            <rect x="138" y="22" width="42" height="51" fill="transparent"/>
+            <!-- light: a warm pool on the tabletop -->
+            <ellipse class="lamp-glow" cx="181" cy="71.6" rx="12" ry="1.8" fill="rgba(255,230,168,0.55)"/>
+            <ellipse cx="152" cy="72.5" rx="11" ry="1.6" fill="rgba(70,45,20,0.2)"/>
+            <!-- weighted base -->
+            <path d="M142.5,72 C142.5,68.2 146.5,66.6 152,66.6 C157.5,66.6 161.5,68.2 161.5,72 Z" fill="url(#lamp-metal)" stroke="rgba(110,90,60,0.45)" stroke-width="0.4"/>
+            <rect x="150.6" y="64.8" width="2.8" height="2.4" rx="0.6" fill="#cfc9bd"/>
+            <!-- lower arm: twin rods with a spring -->
+            <path d="M151,66.5 L139.3,45 M153.3,66.5 L141.6,45" stroke="#d3cec3" stroke-width="1.1" stroke-linecap="round"/>
+            <path d="M149,60.5 L144.5,52" stroke="#9c968b" stroke-width="1.5" stroke-dasharray="0.45 0.45"/>
+            <!-- upper arm -->
+            <path d="M140.8,44.2 L160.4,30.4 M141.8,46 L161.4,32.2" stroke="#d3cec3" stroke-width="1.1" stroke-linecap="round"/>
+            <path d="M146.5,41.6 L155.5,35.3" stroke="#9c968b" stroke-width="1.5" stroke-dasharray="0.45 0.45"/>
+            <!-- joints -->
+            <circle cx="152.2" cy="66.4" r="1.4" fill="#c9c3b6" stroke="rgba(110,90,60,0.5)" stroke-width="0.3"/>
+            <circle cx="140.6" cy="45.2" r="1.9" fill="#e6e2d9" stroke="rgba(110,90,60,0.5)" stroke-width="0.35"/>
+            <circle cx="140.6" cy="45.2" r="0.6" fill="#9c968b"/>
+            <!-- shade, tilted down toward the mug -->
+            <g transform="translate(161.5 31.5) rotate(50)">
+              <path d="M-1,-3.2 C1,-3.6 3,-3.6 4,-3.4 L13.5,-9.2 L13.5,9.2 L4,3.4 C3,3.6 1,3.6 -1,3.2 Z" fill="url(#lamp-metal)" stroke="rgba(110,90,60,0.5)" stroke-width="0.4"/>
+              <circle cx="-1.2" cy="0" r="3.3" fill="#ece8df" stroke="rgba(110,90,60,0.5)" stroke-width="0.4"/>
+              <circle cx="-1.2" cy="0" r="0.8" fill="#b5afa3"/>
+              <path d="M5,-3.6 L12.5,-8.2" stroke="#fff" stroke-width="0.6" opacity="0.8"/>
+              <ellipse cx="13.5" cy="0" rx="1.9" ry="9.2" fill="#e2ddd2" stroke="rgba(110,90,60,0.5)" stroke-width="0.4"/>
+              <ellipse class="lamp-lit" cx="13.7" cy="0" rx="1.5" ry="8.2" fill="#ffe6a8"/>
+              <ellipse class="lamp-lit" cx="13.9" cy="0" rx="0.9" ry="4.2" fill="#fffbe9"/>
+            </g>
           </g>
         </svg>
       </div>

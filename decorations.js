@@ -187,4 +187,81 @@
     }, { passive: true });
     window.addEventListener('wheel', function(e) { if (e.deltaY > 0) fall(); else land(); }, { passive: true });
   })();
+
+  // About page: click the table lamp to toggle it
+  (function tableLamp() {
+    var lamp = document.getElementById('table-lamp');
+    if (!lamp) return;
+    function toggle() {
+      var off = lamp.classList.toggle('lamp-off');
+      lamp.setAttribute('aria-pressed', off ? 'false' : 'true');
+    }
+    lamp.addEventListener('click', toggle);
+    lamp.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  })();
+
+  // About page: drag the lower window sash up and down
+  (function windowSash() {
+    var sash = document.getElementById('window-sash');
+    if (!sash) return;
+    var svg = sash.ownerSVGElement;
+    // Offsets in SVG units from where the sash is drawn: -17 is fully up, +69 is shut
+    var MIN = -17, MAX = 69, offset = 0;
+    function set(v) {
+      offset = Math.max(MIN, Math.min(MAX, v));
+      sash.setAttribute('transform', 'translate(0 ' + offset + ')');
+      sash.setAttribute('aria-valuenow', Math.round((MAX - offset) / (MAX - MIN) * 100));
+    }
+    var startY = 0, startOffset = 0, scale = 1;
+    sash.addEventListener('pointerdown', function(e) {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      scale = svg.viewBox.baseVal.height / svg.getBoundingClientRect().height;
+      startY = e.clientY;
+      startOffset = offset;
+      sash.setPointerCapture(e.pointerId);
+      sash.classList.add('dragging');
+    });
+    sash.addEventListener('pointermove', function(e) {
+      if (!sash.hasPointerCapture(e.pointerId)) return;
+      set(startOffset + (e.clientY - startY) * scale);
+    });
+    function end(e) {
+      if (sash.hasPointerCapture(e.pointerId)) sash.releasePointerCapture(e.pointerId);
+      sash.classList.remove('dragging');
+    }
+    sash.addEventListener('pointerup', end);
+    sash.addEventListener('pointercancel', end);
+    sash.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowUp') { e.preventDefault(); set(offset - 6); }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); set(offset + 6); }
+    });
+  })();
+
+  // About page: the light switch flips to the next view out the window
+  (function lightSwitch() {
+    var sw = document.getElementById('light-switch');
+    var img = document.getElementById('window-view');
+    if (!sw || !img) return;
+    var views = img.getAttribute('data-views').split(' ');
+    var i = Math.max(0, views.indexOf(img.getAttribute('href')));
+    var loading = false;
+    function flip() {
+      if (loading) return;
+      sw.classList.toggle('flipped');
+      i = (i + 1) % views.length;
+      var next = views[i];
+      loading = true;
+      // Swap only once the photo is loaded, so the glass never goes blank
+      var pre = new Image();
+      pre.onload = pre.onerror = function() { img.setAttribute('href', next); loading = false; };
+      pre.src = next;
+    }
+    sw.addEventListener('click', flip);
+    sw.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+    });
+  })();
 })();
